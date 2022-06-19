@@ -3779,6 +3779,7 @@ input, select, textarea {
 			-ms-order: 2;
 			order: 2;
 			width: 30%;
+			margin: auto;
 		}
 
 		@media screen and (max-width: 980px) {
