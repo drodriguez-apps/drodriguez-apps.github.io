@@ -2669,6 +2669,10 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
+
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 		.spotlight .image {
