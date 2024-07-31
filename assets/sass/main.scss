@@ -1059,6 +1059,9 @@
 	.spotlight {
 		@include vendor('align-items', 'center');
 		@include vendor('display', 'flex');
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
 
 		.image {
 			@include vendor('order', '1');
