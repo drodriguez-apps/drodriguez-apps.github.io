@@ -1,6 +1,6 @@
 ---
 name: interface-design
-description: "Use when building or modifying UI components, pages, or layouts to ensure design consistency. This skill enforces reading and saving design decisions (spacing, colors, depth, typography) to `.github/interface-design/system.md`."
+description: 'Use when building or modifying UI components, pages, or layouts to ensure design consistency. This skill enforces reading and saving design decisions (spacing, colors, depth, typography) to `.github/interface-design/system.md`.'
 ---
 
 # Interface Design Skill

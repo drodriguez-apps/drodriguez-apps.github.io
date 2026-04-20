@@ -36,7 +36,9 @@ usePageMeta({
 
           <h1 class="home-hero__title">
             <span>{{ pickLocalized(currentLocale, landingCopy.heroTitleLead) }}</span>
-            <span class="text-highlight">{{ pickLocalized(currentLocale, landingCopy.heroTitleAccent) }}</span>
+            <span class="text-highlight">{{
+              pickLocalized(currentLocale, landingCopy.heroTitleAccent)
+            }}</span>
           </h1>
 
           <p class="home-hero__lead">
@@ -72,7 +74,9 @@ usePageMeta({
       <div class="container">
         <div class="home-proof__marquee" aria-hidden="true">
           <div class="home-proof__track">
-            <span v-for="(name, index) in marqueeProjects" :key="`${name}-${index}`">{{ name }}</span>
+            <span v-for="(name, index) in marqueeProjects" :key="`${name}-${index}`">{{
+              name
+            }}</span>
           </div>
         </div>
       </div>
@@ -107,7 +111,12 @@ usePageMeta({
           <a class="button-dark" :href="`mailto:${siteConfig.email}`">
             {{ t('actions.email') }}
           </a>
-          <a class="button-secondary" :href="siteConfig.linkedinUrl" target="_blank" rel="noreferrer">
+          <a
+            class="button-secondary"
+            :href="siteConfig.linkedinUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
             {{ t('actions.linkedin') }}
           </a>
           <a

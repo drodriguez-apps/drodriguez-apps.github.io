@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
@@ -165,7 +165,10 @@
         font-size: 0.98rem;
         text-decoration: none;
         cursor: pointer;
-        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          border-color 180ms ease;
       }
 
       .button:hover,
@@ -217,8 +220,8 @@
         <span class="eyebrow">Invite flow / Flujo de invitacion</span>
         <h1>Abriendo Tandapp…</h1>
         <p class="lead" id="heroLead">
-          Si la app ya esta instalada, este enlace debe llevarte directo a la tanda.
-          If not, we will send you to Google Play.
+          Si la app ya esta instalada, este enlace debe llevarte directo a la tanda. If not, we will
+          send you to Google Play.
         </p>
       </section>
       <section class="body">
@@ -234,9 +237,7 @@
             <span class="code-label">Codigo de invitacion</span>
             <span class="code-value" id="inviteCodeValue">------</span>
           </div>
-          <button class="button ghost" id="copyCodeButton" type="button">
-            Copiar codigo
-          </button>
+          <button class="button ghost" id="copyCodeButton" type="button">Copiar codigo</button>
         </div>
 
         <div class="actions">
@@ -245,138 +246,154 @@
         </div>
 
         <p class="footer">
-          Tandapp organiza tandas privadas, acuerdos y comprobantes. No procesa pagos ni retiene dinero.
+          Tandapp organiza tandas privadas, acuerdos y comprobantes. No procesa pagos ni retiene
+          dinero.
         </p>
       </section>
     </main>
 
     <script>
-      (function inviteLanding() {
-        var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.drodriguez.tandapp';
-        var packageName = 'com.drodriguez.tandapp';
-        var inviteHost = 'drodriguez-apps.github.io';
-        var invitePath = '/tandaap/join/';
-        var url = new URL(window.location.href);
-        var statusTitle = document.getElementById('statusTitle');
-        var statusBody = document.getElementById('statusBody');
-        var inviteCodeValue = document.getElementById('inviteCodeValue');
-        var copyCodeButton = document.getElementById('copyCodeButton');
-        var openAppButton = document.getElementById('openAppButton');
-        var playStoreButton = document.getElementById('playStoreButton');
-        var heroLead = document.getElementById('heroLead');
-        var fallbackTimer = null;
+      ;(function inviteLanding() {
+        var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.drodriguez.tandapp'
+        var packageName = 'com.drodriguez.tandapp'
+        var inviteHost = 'drodriguez-apps.github.io'
+        var invitePath = '/tandaap/join/'
+        var url = new URL(window.location.href)
+        var statusTitle = document.getElementById('statusTitle')
+        var statusBody = document.getElementById('statusBody')
+        var inviteCodeValue = document.getElementById('inviteCodeValue')
+        var copyCodeButton = document.getElementById('copyCodeButton')
+        var openAppButton = document.getElementById('openAppButton')
+        var playStoreButton = document.getElementById('playStoreButton')
+        var heroLead = document.getElementById('heroLead')
+        var fallbackTimer = null
 
         function normalizeCode(rawValue) {
-          return (rawValue || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+          return (rawValue || '')
+            .trim()
+            .toUpperCase()
+            .replace(/[^A-Z0-9]/g, '')
         }
 
         function readInviteCode() {
-          var directCode = normalizeCode(url.searchParams.get('code') || url.searchParams.get('inviteCode'));
+          var directCode = normalizeCode(
+            url.searchParams.get('code') || url.searchParams.get('inviteCode'),
+          )
           if (directCode) {
-            return directCode;
+            return directCode
           }
 
-          var segments = url.pathname.split('/').filter(Boolean);
-          var routeOffset = segments[0] === 'tandaap' ? 1 : 0;
+          var segments = url.pathname.split('/').filter(Boolean)
+          var routeOffset = segments[0] === 'tandaap' ? 1 : 0
           if (
             segments.length > routeOffset + 1 &&
             (segments[routeOffset] === 'join' || segments[routeOffset] === 'invite')
           ) {
-            return normalizeCode(segments[routeOffset + 1]);
+            return normalizeCode(segments[routeOffset + 1])
           }
 
-          return '';
+          return ''
         }
 
         function setManualFallback(copy) {
-          statusTitle.textContent = copy.title;
-          statusBody.textContent = copy.body;
+          statusTitle.textContent = copy.title
+          statusBody.textContent = copy.body
         }
 
         function setInvalidInvite() {
-          statusTitle.textContent = 'Este enlace no tiene un codigo valido.';
-          statusBody.textContent = 'Pidele a tu grupo que te comparta otra invitacion.';
-          heroLead.textContent = 'The invite code is missing. Ask for a fresh share link and try again.';
-          copyCodeButton.disabled = true;
-          openAppButton.style.display = 'none';
+          statusTitle.textContent = 'Este enlace no tiene un codigo valido.'
+          statusBody.textContent = 'Pidele a tu grupo que te comparta otra invitacion.'
+          heroLead.textContent =
+            'The invite code is missing. Ask for a fresh share link and try again.'
+          copyCodeButton.disabled = true
+          openAppButton.style.display = 'none'
         }
 
         function copyInviteCode(inviteCode) {
           if (!inviteCode) {
-            return;
+            return
           }
 
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(inviteCode).then(function () {
-              copyCodeButton.textContent = 'Codigo copiado';
+              copyCodeButton.textContent = 'Codigo copiado'
               window.setTimeout(function () {
-                copyCodeButton.textContent = 'Copiar codigo';
-              }, 1600);
-            });
-            return;
+                copyCodeButton.textContent = 'Copiar codigo'
+              }, 1600)
+            })
+            return
           }
 
-          copyCodeButton.textContent = inviteCode;
+          copyCodeButton.textContent = inviteCode
         }
 
         function cancelFallback() {
           if (fallbackTimer !== null) {
-            window.clearTimeout(fallbackTimer);
-            fallbackTimer = null;
+            window.clearTimeout(fallbackTimer)
+            fallbackTimer = null
           }
         }
 
         function scheduleFallback() {
-          cancelFallback();
+          cancelFallback()
           fallbackTimer = window.setTimeout(function () {
             if (!document.hidden) {
               setManualFallback({
                 title: 'Si la app no se abrio sola, sigue con estos botones.',
-                body: 'Primero intenta abrir Tandapp. Si aun no la tienes, entra a Google Play.'
-              });
+                body: 'Primero intenta abrir Tandapp. Si aun no la tienes, entra a Google Play.',
+              })
             }
-          }, 1600);
+          }, 1600)
         }
 
-        var inviteCode = readInviteCode();
-        var encodedCode = encodeURIComponent(inviteCode);
+        var inviteCode = readInviteCode()
+        var encodedCode = encodeURIComponent(inviteCode)
         var androidIntentUrl = inviteCode
-          ? 'intent://' + inviteHost + invitePath + '?code=' + encodedCode + '#Intent;scheme=https;package=' + packageName + ';action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;S.browser_fallback_url=' + encodeURIComponent(playStoreUrl) + ';end'
-          : playStoreUrl;
-        var customSchemeUrl = inviteCode ? 'tandapp://join?code=' + encodedCode : 'tandapp://join';
-        var isAndroid = /Android/i.test(window.navigator.userAgent || '');
+          ? 'intent://' +
+            inviteHost +
+            invitePath +
+            '?code=' +
+            encodedCode +
+            '#Intent;scheme=https;package=' +
+            packageName +
+            ';action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;S.browser_fallback_url=' +
+            encodeURIComponent(playStoreUrl) +
+            ';end'
+          : playStoreUrl
+        var customSchemeUrl = inviteCode ? 'tandapp://join?code=' + encodedCode : 'tandapp://join'
+        var isAndroid = /Android/i.test(window.navigator.userAgent || '')
 
-        playStoreButton.href = playStoreUrl;
-        openAppButton.href = isAndroid ? androidIntentUrl : customSchemeUrl;
-        inviteCodeValue.textContent = inviteCode || 'SIN CODIGO';
+        playStoreButton.href = playStoreUrl
+        openAppButton.href = isAndroid ? androidIntentUrl : customSchemeUrl
+        inviteCodeValue.textContent = inviteCode || 'SIN CODIGO'
         copyCodeButton.addEventListener('click', function () {
-          copyInviteCode(inviteCode);
-        });
+          copyInviteCode(inviteCode)
+        })
 
         document.addEventListener('visibilitychange', function () {
           if (document.hidden) {
-            cancelFallback();
+            cancelFallback()
           }
-        });
-        window.addEventListener('pagehide', cancelFallback);
-        window.addEventListener('blur', cancelFallback);
+        })
+        window.addEventListener('pagehide', cancelFallback)
+        window.addEventListener('blur', cancelFallback)
 
         if (!inviteCode) {
-          setInvalidInvite();
-          return;
+          setInvalidInvite()
+          return
         }
 
-        scheduleFallback();
+        scheduleFallback()
         if (isAndroid) {
-          window.location.replace(androidIntentUrl);
-          return;
+          window.location.replace(androidIntentUrl)
+          return
         }
 
         setManualFallback({
           title: 'Abre la app manualmente para continuar.',
-          body: 'This invite flow is optimized for Android. If Tandapp is not installed yet, use Google Play below.'
-        });
-      })();
+          body: 'This invite flow is optimized for Android. If Tandapp is not installed yet, use Google Play below.',
+        })
+      })()
     </script>
   </body>
 </html>

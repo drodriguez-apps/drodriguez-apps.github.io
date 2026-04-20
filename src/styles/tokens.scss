@@ -13,8 +13,8 @@
   --color-text-inverse: #ffffff;
   --color-accent: #ffe17c;
   --color-accent-strong: #f7d74d;
-  --color-border-light: rgba(23, 30, 25, 0.10);
-  --color-border-dark: rgba(183, 198, 194, 0.10);
+  --color-border-light: rgba(23, 30, 25, 0.1);
+  --color-border-dark: rgba(183, 198, 194, 0.1);
   --color-grid-light: #b7c6c220;
   --color-grid-dark: rgba(255, 255, 255, 0.06);
   --color-danger: #ff6c63;
@@ -33,9 +33,7 @@
   --font-heading: 'Anton', impact, sans-serif;
   --font-body: 'Satoshi', system-ui, sans-serif;
   --transition-surface:
-    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }

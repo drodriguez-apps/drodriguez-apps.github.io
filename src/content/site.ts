@@ -17,10 +17,7 @@ export const siteConfig = {
 } as const
 
 export const landingCopy = {
-  heroBadge: copy(
-    'Portfolio',
-    'Portfolio',
-  ),
+  heroBadge: copy('Portfolio', 'Portfolio'),
   heroTitleLead: copy('MOBILE APPS', 'APPS MOBILE'),
   heroTitleAccent: copy('BY DANIEL', 'DE DANIEL'),
   heroLead: copy(
@@ -28,7 +25,7 @@ export const landingCopy = {
     'Un portfolio compacto de apps mobile entre alquileres, finanzas, aprendizaje y party play.',
   ),
   finalEyebrow: copy('Start a conversation', 'Empecemos una conversacion'),
-  finalTitle: copy('LET\'S TALK APPS', 'HABLEMOS DE APPS'),
+  finalTitle: copy("LET'S TALK APPS", 'HABLEMOS DE APPS'),
   finalLead: copy(
     'Use email, LinkedIn, or Google Play to jump directly into the portfolio and the person behind it.',
     'Usa email, LinkedIn o Google Play para entrar directo al portfolio y a la persona que lo construye.',

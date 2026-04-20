@@ -44,7 +44,12 @@ const cardStyle = computed(() => ({
     <div class="project-card__body">
       <div class="project-card__brand">
         <div class="project-card__icon-shell">
-          <img :src="project.iconUrl" :alt="`${project.name} icon`" loading="lazy" decoding="async" />
+          <img
+            :src="project.iconUrl"
+            :alt="`${project.name} icon`"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div>

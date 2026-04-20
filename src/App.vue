@@ -51,7 +51,12 @@ useHead({
           <a class="site-footer__link" :href="'mailto:' + siteConfig.email">
             {{ t('actions.email') }}
           </a>
-          <a class="site-footer__link" :href="siteConfig.linkedinUrl" target="_blank" rel="noreferrer">
+          <a
+            class="site-footer__link"
+            :href="siteConfig.linkedinUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
             {{ t('actions.linkedin') }}
           </a>
           <a
