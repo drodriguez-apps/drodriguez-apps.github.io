@@ -3,6 +3,7 @@ import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
 
 import AppHeader from '@/components/AppHeader.vue'
+import LanguageToggle from '@/components/LanguageToggle.vue'
 import { siteConfig } from '@/content/site'
 
 const { t } = useI18n()
@@ -61,6 +62,9 @@ useHead({
           >
             {{ t('actions.openCatalog') }}
           </a>
+          <div class="site-footer__locale">
+            <LanguageToggle />
+          </div>
         </div>
       </div>
     </footer>
@@ -77,7 +81,7 @@ useHead({
 
 main {
   flex: 1;
-  padding-top: var(--header-height);
+  padding-top: var(--header-offset, var(--header-height));
 }
 
 .site-footer {
@@ -140,6 +144,24 @@ main {
 .site-footer__link:hover,
 .site-footer__link:focus-visible {
   color: var(--color-accent);
+}
+
+.site-footer__locale {
+  margin-top: 0.35rem;
+}
+
+.site-footer__locale :deep(.language-toggle) {
+  border-color: var(--color-border-dark);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.site-footer__locale :deep(.language-toggle__button) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer__locale :deep(.language-toggle__button--active) {
+  background: var(--color-accent);
+  color: var(--color-text);
 }
 
 @media (max-width: 860px) {

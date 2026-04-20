@@ -8,6 +8,11 @@ html {
   scroll-behavior: smooth;
 }
 
+#main-content,
+main [id] {
+  scroll-margin-top: calc(var(--header-offset, var(--header-height)) + 1rem);
+}
+
 body {
   margin: 0;
   min-width: 320px;

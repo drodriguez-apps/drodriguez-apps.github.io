@@ -1,15 +1,47 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import LanguageToggle from '@/components/LanguageToggle.vue'
 import { siteConfig } from '@/content/site'
 
 const { t } = useI18n()
+
+const headerElement = ref<HTMLElement | null>(null)
+
+let resizeObserver: ResizeObserver | null = null
+
+function updateHeaderOffset() {
+  if (typeof document === 'undefined' || !headerElement.value) {
+    return
+  }
+
+  document.documentElement.style.setProperty(
+    '--header-offset',
+    `${Math.ceil(headerElement.value.getBoundingClientRect().height)}px`,
+  )
+}
+
+onMounted(() => {
+  updateHeaderOffset()
+  window.addEventListener('resize', updateHeaderOffset)
+
+  if (typeof ResizeObserver !== 'undefined' && headerElement.value) {
+    resizeObserver = new ResizeObserver(() => {
+      updateHeaderOffset()
+    })
+    resizeObserver.observe(headerElement.value)
+  }
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateHeaderOffset)
+  resizeObserver?.disconnect()
+})
 </script>
 
 <template>
-  <header class="site-header">
+  <header ref="headerElement" class="site-header">
     <div class="container site-header__content">
       <RouterLink class="site-header__brand" to="/">
         <span class="site-header__brand-name">{{ siteConfig.brandName }}</span>
@@ -24,16 +56,6 @@ const { t } = useI18n()
           {{ t('nav.contact') }}
         </RouterLink>
       </nav>
-
-      <div class="site-header__actions">
-        <a class="site-header__plain-link" :href="`mailto:${siteConfig.email}`">
-          {{ t('nav.contact') }}
-        </a>
-        <RouterLink class="button-dark site-header__cta" :to="{ path: '/', hash: '#apps' }">
-          {{ t('actions.browseApps') }}
-        </RouterLink>
-        <LanguageToggle />
-      </div>
     </div>
   </header>
 </template>
@@ -82,8 +104,9 @@ const { t } = useI18n()
 .site-header__nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.1rem;
+  margin-left: auto;
 }
 
 .site-header__link {
@@ -100,49 +123,22 @@ const { t } = useI18n()
   color: var(--color-text);
 }
 
-.site-header__actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.site-header__plain-link {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-.site-header__plain-link:hover,
-.site-header__plain-link:focus-visible {
-  color: var(--color-text);
-}
-
-.site-header__cta {
-  min-height: 3rem;
-  padding-inline: 1.4rem;
-}
-
 @media (max-width: 860px) {
   .site-header__content {
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 0.85rem 0;
+    justify-content: flex-start;
+    row-gap: 0.75rem;
+    padding: 0.85rem 0 0.95rem;
   }
 
   .site-header__brand {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .site-header__nav {
-    order: 2;
     width: 100%;
-  }
-
-  .site-header__actions {
-    order: 3;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-left: 0;
   }
 }
 </style>

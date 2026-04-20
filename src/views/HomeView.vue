@@ -128,7 +128,7 @@ usePageMeta({
 .home-hero {
   display: flex;
   align-items: center;
-  min-height: calc(100svh - var(--header-height));
+  min-height: calc(100svh - var(--header-offset, var(--header-height)));
   padding: clamp(3rem, 8vw, 6rem) 0;
 }
 

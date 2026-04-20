@@ -55,6 +55,11 @@ Scale: 8, 12, 16, 24, 32, 48, 64, 80, 120
 ### Detail Pages
 - Product pages use a full-width banner followed by an overlapping content sheet
 - Actions, quick facts, and overview copy live in the same reading flow instead of a side inspector
+- On narrow screens, the reading sheet comes first and the banner drops below the overview instead of hiding behind the opening card
+
+### Global Chrome
+- The fixed header uses its measured rendered height as the shared offset for main layout spacing and hash-link landing positions
+- Locale switching lives in the footer connect area, not in the fixed header
 
 ### Conversion Elements
 - Yellow is reserved for the highest-priority CTA and emphasis marks

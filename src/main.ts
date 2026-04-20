@@ -7,6 +7,26 @@ import { defaultLocale, messages, persistLocale, resolvePreferredLocale } from '
 import { routes } from './router/routes'
 import './styles/main.scss'
 
+function resolveHeaderOffset(): number {
+  if (typeof document === 'undefined') {
+    return 0
+  }
+
+  const header = document.querySelector<HTMLElement>('.site-header')
+
+  if (header) {
+    return Math.ceil(header.getBoundingClientRect().height + 16)
+  }
+
+  const cssOffset = window
+    .getComputedStyle(document.documentElement)
+    .getPropertyValue('--header-offset')
+    .trim()
+  const parsedOffset = Number.parseFloat(cssOffset)
+
+  return Number.isFinite(parsedOffset) ? Math.ceil(parsedOffset + 16) : 0
+}
+
 export const createApp = ViteSSG(
   App,
   {
@@ -15,7 +35,7 @@ export const createApp = ViteSSG(
       if (to.hash) {
         return {
           el: to.hash,
-          top: 104,
+          top: resolveHeaderOffset(),
           behavior: 'smooth',
         }
       }

@@ -179,7 +179,7 @@ usePageMeta({
 }
 
 .project-hero {
-  padding: clamp(2rem, 5vw, 5rem) 0 0;
+  padding: clamp(2rem, 5vw, 5rem) 0 clamp(2.5rem, 6vw, 4rem);
 }
 
 .project-hero__layout {
@@ -352,8 +352,18 @@ usePageMeta({
 }
 
 @media (max-width: 680px) {
+  .project-hero__layout {
+    gap: 1rem;
+  }
+
+  .project-hero__media {
+    order: 2;
+  }
+
   .project-hero__body {
-    width: calc(100% - 1rem);
+    order: 1;
+    width: 100%;
+    margin: 0;
   }
 
   .project-hero__identity,
