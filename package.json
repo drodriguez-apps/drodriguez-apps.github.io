@@ -1,24 +1,40 @@
 {
-  "name": "my-rents-website",
-  "version": "1.0.0",
-  "description": "Example [Hugo](https://gohugo.io) website using [GitLab Pages](https://about.gitlab.com/stages-devops-lifecycle/pages/).",
-  "main": "index.js",
+  "name": "drodriguez-apps-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "dev": "parcel public/index.html",
-    "format": "prettier --write \"public/**/*.{js,html,css,scss}\""
+    "dev": "vite",
+    "build": "vite-ssg build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run lint && npm run type-check && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/erperejildo/my-rents-website.git"
+  "dependencies": {
+    "@unhead/vue": "^2.1.13",
+    "vite-ssg": "^28.3.0",
+    "vue": "^3.5.32",
+    "vue-i18n": "^11.3.1",
+    "vue-router": "^5.0.4"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/erperejildo/my-rents-website/issues"
-  },
-  "homepage": "https://gitlab.com/erperejildo/my-rents-website#readme",
   "devDependencies": {
-    "parcel": "^1.12.3",
-    "prettier": "^3.3.3"
+    "@babel/types": "^7.29.0",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.2",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "beasties": "^0.3.5",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
+    "prettier": "^3.8.1",
+    "sass-embedded": "^1.99.0",
+    "typescript": "5.9",
+    "typescript-eslint": "^8.58.0",
+    "vite": "^8.0.6",
+    "vue-tsc": "^3.2.6"
   }
 }

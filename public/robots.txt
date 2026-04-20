@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drodriguez-apps.github.io/sitemap.xml

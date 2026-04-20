@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Unirse a la tanda | Tandapp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #efe7db;
+        --card: rgba(255, 251, 244, 0.95);
+        --ink: #182118;
+        --muted: rgba(24, 33, 24, 0.72);
+        --line: rgba(24, 33, 24, 0.12);
+        --accent: #0f7a4c;
+        --accent-strong: #0b603d;
+        --soft: #f0e3bf;
+        --shadow: 0 32px 86px rgba(36, 47, 39, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 0 0, rgba(240, 227, 191, 0.92), transparent 36%),
+          radial-gradient(circle at 100% 0, rgba(15, 122, 76, 0.16), transparent 28%),
+          linear-gradient(180deg, #fbf8f1 0%, var(--background) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+
+      .card {
+        width: min(100%, 560px);
+        border-radius: 30px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero {
+        padding: 26px 24px 18px;
+        background:
+          linear-gradient(135deg, rgba(15, 122, 76, 0.12), transparent 48%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0));
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(15, 122, 76, 0.08);
+        color: var(--accent-strong);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      h1 {
+        margin: 18px 0 12px;
+        font-family: 'Fraunces', serif;
+        font-size: clamp(2.4rem, 8vw, 4rem);
+        line-height: 0.94;
+        letter-spacing: -0.04em;
+      }
+
+      .lead,
+      .helper,
+      .footer {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .lead {
+        margin: 0;
+      }
+
+      .body {
+        padding: 0 24px 24px;
+      }
+
+      .status {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(24, 33, 24, 0.08);
+      }
+
+      .status strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .code-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 14px;
+        padding: 14px 16px;
+        border-radius: 20px;
+        background: var(--soft);
+        border: 1px solid rgba(24, 33, 24, 0.08);
+      }
+
+      .code-label {
+        display: block;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .code-value {
+        display: block;
+        margin-top: 6px;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .actions {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 56px;
+        padding: 0 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--ink);
+        font-weight: 800;
+        font-size: 0.98rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        border-color: transparent;
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .button.primary:hover,
+      .button.primary:focus-visible {
+        background: var(--accent-strong);
+      }
+
+      .button.ghost {
+        background: transparent;
+      }
+
+      .footer {
+        margin-top: 18px;
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 520px) {
+        .card {
+          border-radius: 24px;
+        }
+
+        .hero,
+        .body {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .code-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <section class="hero">
+        <span class="eyebrow">Invite flow / Flujo de invitacion</span>
+        <h1>Abriendo Tandapp…</h1>
+        <p class="lead" id="heroLead">
+          Si la app ya esta instalada, este enlace debe llevarte directo a la tanda.
+          If not, we will send you to Google Play.
+        </p>
+      </section>
+      <section class="body">
+        <div class="status">
+          <strong id="statusTitle">Estamos intentando abrir la app.</strong>
+          <p class="helper" id="statusBody">
+            Si no pasa nada en unos segundos, usa los botones de abajo.
+          </p>
+        </div>
+
+        <div class="code-row" id="codeRow">
+          <div>
+            <span class="code-label">Codigo de invitacion</span>
+            <span class="code-value" id="inviteCodeValue">------</span>
+          </div>
+          <button class="button ghost" id="copyCodeButton" type="button">
+            Copiar codigo
+          </button>
+        </div>
+
+        <div class="actions">
+          <a class="button primary" id="openAppButton" href="#">Abrir Tandapp</a>
+          <a class="button" id="playStoreButton" href="#">Abrir Google Play</a>
+        </div>
+
+        <p class="footer">
+          Tandapp organiza tandas privadas, acuerdos y comprobantes. No procesa pagos ni retiene dinero.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      (function inviteLanding() {
+        var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.drodriguez.tandapp';
+        var packageName = 'com.drodriguez.tandapp';
+        var inviteHost = 'drodriguez-apps.github.io';
+        var invitePath = '/tandaap/join/';
+        var url = new URL(window.location.href);
+        var statusTitle = document.getElementById('statusTitle');
+        var statusBody = document.getElementById('statusBody');
+        var inviteCodeValue = document.getElementById('inviteCodeValue');
+        var copyCodeButton = document.getElementById('copyCodeButton');
+        var openAppButton = document.getElementById('openAppButton');
+        var playStoreButton = document.getElementById('playStoreButton');
+        var heroLead = document.getElementById('heroLead');
+        var fallbackTimer = null;
+
+        function normalizeCode(rawValue) {
+          return (rawValue || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+        }
+
+        function readInviteCode() {
+          var directCode = normalizeCode(url.searchParams.get('code') || url.searchParams.get('inviteCode'));
+          if (directCode) {
+            return directCode;
+          }
+
+          var segments = url.pathname.split('/').filter(Boolean);
+          var routeOffset = segments[0] === 'tandaap' ? 1 : 0;
+          if (
+            segments.length > routeOffset + 1 &&
+            (segments[routeOffset] === 'join' || segments[routeOffset] === 'invite')
+          ) {
+            return normalizeCode(segments[routeOffset + 1]);
+          }
+
+          return '';
+        }
+
+        function setManualFallback(copy) {
+          statusTitle.textContent = copy.title;
+          statusBody.textContent = copy.body;
+        }
+
+        function setInvalidInvite() {
+          statusTitle.textContent = 'Este enlace no tiene un codigo valido.';
+          statusBody.textContent = 'Pidele a tu grupo que te comparta otra invitacion.';
+          heroLead.textContent = 'The invite code is missing. Ask for a fresh share link and try again.';
+          copyCodeButton.disabled = true;
+          openAppButton.style.display = 'none';
+        }
+
+        function copyInviteCode(inviteCode) {
+          if (!inviteCode) {
+            return;
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(inviteCode).then(function () {
+              copyCodeButton.textContent = 'Codigo copiado';
+              window.setTimeout(function () {
+                copyCodeButton.textContent = 'Copiar codigo';
+              }, 1600);
+            });
+            return;
+          }
+
+          copyCodeButton.textContent = inviteCode;
+        }
+
+        function cancelFallback() {
+          if (fallbackTimer !== null) {
+            window.clearTimeout(fallbackTimer);
+            fallbackTimer = null;
+          }
+        }
+
+        function scheduleFallback() {
+          cancelFallback();
+          fallbackTimer = window.setTimeout(function () {
+            if (!document.hidden) {
+              setManualFallback({
+                title: 'Si la app no se abrio sola, sigue con estos botones.',
+                body: 'Primero intenta abrir Tandapp. Si aun no la tienes, entra a Google Play.'
+              });
+            }
+          }, 1600);
+        }
+
+        var inviteCode = readInviteCode();
+        var encodedCode = encodeURIComponent(inviteCode);
+        var androidIntentUrl = inviteCode
+          ? 'intent://' + inviteHost + invitePath + '?code=' + encodedCode + '#Intent;scheme=https;package=' + packageName + ';action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;S.browser_fallback_url=' + encodeURIComponent(playStoreUrl) + ';end'
+          : playStoreUrl;
+        var customSchemeUrl = inviteCode ? 'tandapp://join?code=' + encodedCode : 'tandapp://join';
+        var isAndroid = /Android/i.test(window.navigator.userAgent || '');
+
+        playStoreButton.href = playStoreUrl;
+        openAppButton.href = isAndroid ? androidIntentUrl : customSchemeUrl;
+        inviteCodeValue.textContent = inviteCode || 'SIN CODIGO';
+        copyCodeButton.addEventListener('click', function () {
+          copyInviteCode(inviteCode);
+        });
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) {
+            cancelFallback();
+          }
+        });
+        window.addEventListener('pagehide', cancelFallback);
+        window.addEventListener('blur', cancelFallback);
+
+        if (!inviteCode) {
+          setInvalidInvite();
+          return;
+        }
+
+        scheduleFallback();
+        if (isAndroid) {
+          window.location.replace(androidIntentUrl);
+          return;
+        }
+
+        setManualFallback({
+          title: 'Abre la app manualmente para continuar.',
+          body: 'This invite flow is optimized for Android. If Tandapp is not installed yet, use Google Play below.'
+        });
+      })();
+    </script>
+  </body>
+</html>

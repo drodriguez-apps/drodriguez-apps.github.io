@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "types": ["node", "vite-ssg"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "eslint.config.js",
+    "vite.config.ts",
+    "scripts/**/*.mjs",
+    "src/content/**/*.ts",
+    "src/types/**/*.ts"
+  ]
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Drodriguez Apps logo">
+  <defs>
+    <linearGradient id="dr-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f6b63" />
+      <stop offset="100%" stop-color="#ff6b4a" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#fff8ef" />
+  <path
+    d="M30 32h29c22 0 37 12 37 32s-15 32-37 32H30V32Zm26 48c12 0 20-5 20-16s-8-16-20-16H48v32h8Zm17 0 25 16H76l-17-16h14Z"
+    fill="url(#dr-gradient)"
+  />
+</svg>
