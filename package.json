@@ -7,11 +7,12 @@
     "dev": "vite",
     "build": "vite-ssg build",
     "preview": "vite preview",
+    "check:pages-artifact": "node scripts/validate-pages-artifact.mjs dist",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run format:check && npm run lint && npm run type-check && npm run build"
+    "check": "npm run format:check && npm run lint && npm run type-check && npm run build && npm run check:pages-artifact"
   },
   "dependencies": {
     "@unhead/vue": "^2.1.13",
