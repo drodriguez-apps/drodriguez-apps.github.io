@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex" />
     <title>Redireccionando invitacion | Tandapp</title>
     <script>
-      ;(function redirectLegacyInvite() {
+      ;(function redirectInvite() {
         var url = new URL(window.location.href)
 
         function normalizeCode(rawValue) {
@@ -26,7 +26,8 @@
           }
 
           var segments = url.pathname.split('/').filter(Boolean)
-          var routeOffset = segments[0] === 'tandaap' ? 1 : 0
+          var routeOffset =
+            segments[0] === 'tandaap' || segments[0] === 'tandapp' ? 1 : 0
           if (
             segments.length > routeOffset + 1 &&
             (segments[routeOffset] === 'join' || segments[routeOffset] === 'invite')

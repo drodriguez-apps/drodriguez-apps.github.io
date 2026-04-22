@@ -34,6 +34,47 @@
         font-weight: 700;
       }
     </style>
+    <script>
+      ;(function redirectInvitePath() {
+        var path = window.location.pathname || '/'
+        var normalizedPath = path.replace(/\/+$/, '')
+
+        function normalizeCode(rawValue) {
+          return (rawValue || '')
+            .trim()
+            .toUpperCase()
+            .replace(/[^A-Z0-9]/g, '')
+        }
+
+        function redirectToInvite(parts, codeIndex) {
+          var inviteCode = parts.length > codeIndex ? normalizeCode(parts[codeIndex]) : ''
+          var target =
+            '/tandapp/invite/' +
+            (inviteCode ? '?code=' + encodeURIComponent(inviteCode) : '')
+          window.location.replace(target + window.location.hash)
+        }
+
+        if (normalizedPath.indexOf('/tandapp/invite/') === 0) {
+          redirectToInvite(normalizedPath.split('/').filter(Boolean), 2)
+          return
+        }
+
+        if (normalizedPath.indexOf('/invite/') === 0) {
+          redirectToInvite(normalizedPath.split('/').filter(Boolean), 1)
+          return
+        }
+
+        if (normalizedPath.indexOf('/join/') === 0) {
+          redirectToInvite(normalizedPath.split('/').filter(Boolean), 1)
+          return
+        }
+
+        if (normalizedPath.indexOf('/tandaap/join/') === 0) {
+          redirectToInvite(normalizedPath.split('/').filter(Boolean), 2)
+          return
+        }
+      })()
+    </script>
   </head>
   <body>
     <main>
