@@ -49,8 +49,7 @@
         function redirectToInvite(parts, codeIndex) {
           var inviteCode = parts.length > codeIndex ? normalizeCode(parts[codeIndex]) : ''
           var target =
-            '/tandapp/invite/' +
-            (inviteCode ? '?code=' + encodeURIComponent(inviteCode) : '')
+            '/tandapp/invite/' + (inviteCode ? '?code=' + encodeURIComponent(inviteCode) : '')
           window.location.replace(target + window.location.hash)
         }
 

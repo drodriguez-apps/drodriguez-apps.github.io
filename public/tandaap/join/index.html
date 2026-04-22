@@ -39,8 +39,7 @@
 
         var inviteCode = readInviteCode()
         var target =
-          '/tandapp/invite/' +
-          (inviteCode ? '?code=' + encodeURIComponent(inviteCode) : '')
+          '/tandapp/invite/' + (inviteCode ? '?code=' + encodeURIComponent(inviteCode) : '')
         window.location.replace(target + window.location.hash)
       })()
     </script>

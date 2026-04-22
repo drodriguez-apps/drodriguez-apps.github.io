@@ -224,8 +224,8 @@
         <span class="eyebrow">Invite flow / Flujo de invitacion</span>
         <h1 id="heroTitle">Abriendo Tandapp…</h1>
         <p class="lead" id="heroLead">
-          Si la app ya esta instalada, este enlace debe llevarte directo a la tanda.
-          If not, we will send you to the app market.
+          Si la app ya esta instalada, este enlace debe llevarte directo a la tanda. If not, we will
+          send you to the app market.
         </p>
       </section>
       <section class="body">
@@ -250,7 +250,8 @@
         </div>
 
         <p class="footer">
-          Tandapp organiza tandas privadas, acuerdos y comprobantes. No procesa pagos ni retiene dinero.
+          Tandapp organiza tandas privadas, acuerdos y comprobantes. No procesa pagos ni retiene
+          dinero.
         </p>
       </section>
     </main>
@@ -294,8 +295,7 @@
           }
 
           var segments = url.pathname.split('/').filter(Boolean)
-          var routeOffset =
-            segments[0] === 'tandaap' || segments[0] === 'tandapp' ? 1 : 0
+          var routeOffset = segments[0] === 'tandaap' || segments[0] === 'tandapp' ? 1 : 0
           if (
             segments.length > routeOffset + 1 &&
             (segments[routeOffset] === 'join' || segments[routeOffset] === 'invite')
@@ -378,9 +378,7 @@
             encodeURIComponent(playStoreUrl) +
             ';end'
           : playStoreUrl
-        var customSchemeUrl = inviteCode
-          ? 'tandapp://join?code=' + encodedCode
-          : 'tandapp://join'
+        var customSchemeUrl = inviteCode ? 'tandapp://join?code=' + encodedCode : 'tandapp://join'
 
         inviteCodeValue.textContent = inviteCode || 'SIN CODIGO'
         copyCodeButton.addEventListener('click', function () {
@@ -406,7 +404,8 @@
             heroLead:
               'This tanda invite opens the app on a phone. If Tandapp is already installed there, the invite will take you straight in.',
             statusTitle: 'En desktop no abrimos la app automaticamente.',
-            statusBody: 'Abre este mismo enlace en tu telefono para entrar a la tanda o copia el enlace de invitacion.',
+            statusBody:
+              'Abre este mismo enlace en tu telefono para entrar a la tanda o copia el enlace de invitacion.',
             primaryLabel: 'Copiar enlace',
             secondaryLabel: 'Ir a la tienda',
           })
