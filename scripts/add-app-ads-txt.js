@@ -32,12 +32,23 @@ async function distPathForSlug(root, slug) {
 async function main() {
   const root = process.cwd()
   const appAdsSrc = join(root, 'app-ads.txt')
+  const distRoot = join(root, 'dist')
   let adsContent
   try {
     adsContent = await readTextFile(appAdsSrc)
   } catch {
     console.warn('Warning: app-ads.txt not found at repo root. Skipping copy to dist.')
     return
+  }
+
+  try {
+    await writeFile(join(distRoot, 'app-ads.txt'), adsContent)
+    console.log(`Copied app-ads.txt to ${join(distRoot, 'app-ads.txt')}`)
+  } catch (err) {
+    console.warn(
+      `Could not copy to ${join(distRoot, 'app-ads.txt')}:`,
+      err && typeof err === 'object' ? err.message : err,
+    )
   }
 
   // Read apps.ts to collect slugs
