@@ -441,9 +441,9 @@ export const appProjects: AppProject[] = [
     },
   },
   {
-    slug: 'mind-your-math',
-    name: 'Mind your Math',
-    storeTitle: 'Mind your Math - Arithmetic',
+    slug: 'mind-your-maths',
+    name: 'Mind your Maths',
+    storeTitle: 'Mind your Maths - Arithmetic',
     category: copy('Education', 'Educacion'),
     updatedLabel: copy('September 3, 2024', '3 de septiembre de 2024'),
     summary: copy(
@@ -456,8 +456,8 @@ export const appProjects: AppProject[] = [
     ),
     description: [
       copy(
-        'Mind your Math is built to make arithmetic practice feel approachable, using exercises that cover addition, subtraction, multiplication, division, decimals, and multiplication tables.',
-        'Mind your Math esta pensada para que practicar aritmetica resulte accesible, con ejercicios que cubren suma, resta, multiplicacion, division, decimales y tablas de multiplicar.',
+        'Mind your Maths is built to make arithmetic practice feel approachable, using exercises that cover addition, subtraction, multiplication, division, decimals, and multiplication tables.',
+        'Mind your Maths esta pensada para que practicar aritmetica resulte accesible, con ejercicios que cubren suma, resta, multiplicacion, division, decimales y tablas de multiplicar.',
       ),
       copy(
         'The latest store copy emphasizes adaptive difficulty, parent goal setting, real-time reports, and support for early-childhood and primary-school learning.',
@@ -488,8 +488,8 @@ export const appProjects: AppProject[] = [
       },
     ],
     featureAlt: copy(
-      'Mind your Math learning screens and arithmetic exercises.',
-      'Pantallas de aprendizaje y ejercicios aritmeticos de Mind your Math.',
+      'Mind your Maths learning screens and arithmetic exercises.',
+      'Pantallas de aprendizaje y ejercicios aritmeticos de Mind your Maths.',
     ),
     downloads: '1K+',
     rating: '5.0',

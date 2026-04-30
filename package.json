@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/add-app-ads-txt.js && vite-ssg build",
+    "build": "vite-ssg build && node scripts/add-app-ads-txt.js",
     "preview": "vite preview",
     "check:pages-artifact": "node scripts/validate-pages-artifact.mjs dist",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",

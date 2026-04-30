@@ -1,89 +1,78 @@
 /**
- * Copy root app-ads.txt into each app directory under public
- * so that each app URL path (e.g. /tandapp, /invite) exposes app-ads.txt
- * at its root (e.g. /tandapp/app-ads.txt).
+ * Copy root app-ads.txt into dist for all app slugs defined in src/content/apps.ts
  */
-// Node script: copy app-ads.txt to app roots
-/**
- * Copy root app-ads.txt into each app directory under public
- * so that each app URL path (e.g. /tandapp, /invite) exposes app-ads.txt
- * at its root (e.g. /tandapp/app-ads.txt).
- */
-import { readFile, writeFile, readdir } from 'node:fs/promises'
+import { writeFile, stat } from 'node:fs/promises'
+import { readFile as readTextFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-async function hasIndexUnder(dir) {
-  let entries
-  try {
-    entries = await readdir(dir, { withFileTypes: true })
-  } catch {
-    return false
+function extractSlugsFromAppsTs(content) {
+  const slugs = new Set()
+  const re = /slug\s*[:=]\s*['"]([^'"]+)['"]/g
+  let m
+  while ((m = re.exec(content)) !== null) {
+    slugs.add(m[1])
   }
-  for (const e of entries) {
-    if (e.isFile() && e.name.toLowerCase() === 'index.html') return true
-  }
-  // Recurse into subdirectories
-  for (const e of entries) {
-    if (e.isDirectory()) {
-      if (await hasIndexUnder(join(dir, e.name))) return true
+  return Array.from(slugs)
+}
+
+async function distPathForSlug(root, slug) {
+  const distRoot = join(root, 'dist')
+  const candidates = [join(distRoot, slug), join(distRoot, 'apps', slug)]
+  for (const p of candidates) {
+    try {
+      const st = await stat(p)
+      if (st.isDirectory()) return p
+    } catch {
+      // ignore
     }
   }
-  return false
+  return null
 }
 
 async function main() {
   const root = process.cwd()
-  const publicDir = join(root, 'public')
   const appAdsSrc = join(root, 'app-ads.txt')
-
-  // Ensure source exists
-  let srcExists = true
+  let adsContent
   try {
-    await readFile(appAdsSrc)
+    adsContent = await readTextFile(appAdsSrc)
   } catch {
-    srcExists = false
-  }
-  if (!srcExists) {
-    console.warn('Warning: app-ads.txt not found at repo root. Skipping copy.')
+    console.warn('Warning: app-ads.txt not found at repo root. Skipping copy to dist.')
     return
   }
 
-  // Discover app roots under public by finding directories that contain index.html somewhere inside
-  let publicEntries
+  // Read apps.ts to collect slugs
+  const appsTsPath = join(root, 'src', 'content', 'apps.ts')
+  let appsTs
   try {
-    publicEntries = await readdir(publicDir, { withFileTypes: true })
-  } catch (err) {
-    console.error(
-      'Public directory not found:',
-      publicDir,
-      err && typeof err === 'object' ? err.message : err,
-    )
+    appsTs = await readTextFile(appsTsPath)
+  } catch {
+    console.error('Failed to read apps.ts at', appsTsPath)
     process.exit(1)
   }
-
-  const candidateDirs = publicEntries
-    .filter((e) => e.isDirectory())
-    .map((e) => join(publicDir, e.name))
-  const appRoots = []
-  for (const dir of candidateDirs) {
-    if (await hasIndexUnder(dir)) {
-      appRoots.push(dir)
-    }
+  const slugs = extractSlugsFromAppsTs(appsTs)
+  if (slugs.length === 0) {
+    console.log('No slugs found in apps.ts; nothing to copy.')
+    return
   }
 
-  // Copy app-ads.txt into each app root as app-ads.txt
-  for (const appRoot of appRoots) {
-    const target = join(appRoot, 'app-ads.txt')
+  // Copy app-ads.txt into each dist slug directory if it exists
+  for (const slug of slugs) {
+    const distDir = await distPathForSlug(root, slug)
+    if (!distDir) continue
+    const target = join(distDir, 'app-ads.txt')
     try {
-      await writeFile(target, await readFile(appAdsSrc))
+      await writeFile(target, adsContent)
       console.log(`Copied app-ads.txt to ${target}`)
-    } catch (e) {
-      console.warn(`Could not copy to ${target}:`, e && e.message ? e.message : e)
+    } catch (err) {
+      console.warn(
+        `Could not copy to ${target}:`,
+        err && typeof err === 'object' ? err.message : err,
+      )
     }
   }
 }
 
 main().catch((err) => {
-  console.error('Error while copying app-ads.txt:', err)
+  console.error('Error while copying app-ads.txt to dist:', err)
   process.exit(1)
 })
