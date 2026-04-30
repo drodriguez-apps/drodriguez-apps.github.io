@@ -1,10 +1,9 @@
-#!/usr/bin/env node
 /**
  * Copy root app-ads.txt into each app directory under public
  * so that each app URL path (e.g. /tandapp, /invite) exposes app-ads.txt
  * at its root (e.g. /tandapp/app-ads.txt).
  */
-#!/usr/bin/env node
+// Node script: copy app-ads.txt to app roots
 /**
  * Copy root app-ads.txt into each app directory under public
  * so that each app URL path (e.g. /tandapp, /invite) exposes app-ads.txt
@@ -54,11 +53,17 @@ async function main() {
   try {
     publicEntries = await readdir(publicDir, { withFileTypes: true })
   } catch (err) {
-    console.error('Public directory not found:', publicDir)
+    console.error(
+      'Public directory not found:',
+      publicDir,
+      err && typeof err === 'object' ? err.message : err,
+    )
     process.exit(1)
   }
 
-  const candidateDirs = publicEntries.filter((e) => e.isDirectory()).map((e) => join(publicDir, e.name))
+  const candidateDirs = publicEntries
+    .filter((e) => e.isDirectory())
+    .map((e) => join(publicDir, e.name))
   const appRoots = []
   for (const dir of candidateDirs) {
     if (await hasIndexUnder(dir)) {
@@ -72,8 +77,8 @@ async function main() {
     try {
       await writeFile(target, await readFile(appAdsSrc))
       console.log(`Copied app-ads.txt to ${target}`)
-    } catch (err) {
-      console.warn(`Could not copy to ${target}:`, (err as any)?.message ?? err)
+    } catch (e) {
+      console.warn(`Could not copy to ${target}:`, e && e.message ? e.message : e)
     }
   }
 }
