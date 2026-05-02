@@ -90,7 +90,7 @@ const cardStyle = computed(() => ({
 
 .project-card__feature {
   width: 100%;
-  height: 100%;
+  height: 241px;
   object-fit: cover;
 }
 
