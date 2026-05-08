@@ -38,6 +38,18 @@ const appRoutes: RouteRecordRaw[] = appProjects.flatMap((project) => [
       appSlug: project.slug,
     },
   },
+  {
+    path: `/${project.slug}/eula`,
+    name: `${project.slug}-eula`,
+    component: () => import('@/views/LegalView.vue'),
+    props: {
+      slug: project.slug,
+      documentType: 'eula',
+    },
+    meta: {
+      appSlug: project.slug,
+    },
+  },
 ])
 
 export const routes: RouteRecordRaw[] = [

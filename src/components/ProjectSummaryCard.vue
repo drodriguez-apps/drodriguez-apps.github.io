@@ -59,6 +59,13 @@ const cardStyle = computed(() => ({
           <RouterLink class="button-secondary" :to="`/${project.slug}/terms-and-conditions`">
             {{ t('actions.terms') }}
           </RouterLink>
+          <RouterLink
+            v-if="project.slug === 'tandapp'"
+            class="button-secondary"
+            :to="`/${project.slug}/eula`"
+          >
+            {{ t('actions.eula') }}
+          </RouterLink>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ const projectRoutes = appProjects.flatMap((project) => [
   `/${project.slug}`,
   `/${project.slug}/policy`,
   `/${project.slug}/terms-and-conditions`,
+  `/${project.slug}/eula`,
 ])
 
 export default defineConfig({

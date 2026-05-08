@@ -72,6 +72,120 @@ export const privacyDocument: LegalDocument = {
   ],
 }
 
+export const eulaDocument: LegalDocument = {
+  title: copy('End-user license agreement (EULA)', 'Acuerdo de licencia de usuario final (EULA)'),
+  summary: copy(
+    'This agreement governs the use of the app, defines acceptable behavior for user-generated content, and describes the moderation tools available to keep the community safe.',
+    'Este acuerdo regula el uso de la app, define el comportamiento aceptable para el contenido generado por usuarios y describe las herramientas de moderacion disponibles para mantener la comunidad segura.',
+  ),
+  sections: [
+    {
+      title: copy('Acceptance of terms', 'Aceptacion de los terminos'),
+      paragraphs: [
+        copy(
+          'By creating an account or using this application, you agree to this end-user license agreement. If you do not agree with these terms, you must not use the app.',
+          'Al crear una cuenta o utilizar esta aplicacion, aceptas este acuerdo de licencia de usuario final. Si no estas de acuerdo con estos terminos, no debes usar la app.',
+        ),
+      ],
+    },
+    {
+      title: copy('Description of the service', 'Descripcion del servicio'),
+      paragraphs: [
+        copy(
+          'This app helps users organize and coordinate group savings rounds (tandas). It includes group chat, payment tracking, reminders, and shared records. Users can send messages, share proof photos, and post updates visible to other members of the same group.',
+          'Esta app ayuda a organizar y coordinar rondas de ahorro grupales (tandas). Incluye chat de grupo, seguimiento de pagos, recordatorios y registros compartidos. Los usuarios pueden enviar mensajes, compartir fotos de comprobantes y publicar novedades visibles para otros miembros del mismo grupo.',
+        ),
+      ],
+    },
+    {
+      title: copy('User-generated content rules', 'Normas sobre contenido generado por usuarios'),
+      paragraphs: [
+        copy(
+          'There is no tolerance for objectionable content or abusive users. By using this app, you agree not to post, share, or transmit any content that is unlawful, defamatory, obscene, discriminatory, threatening, harassing, abusive, pornographic, or otherwise objectionable.',
+          'No hay tolerancia para contenido objetable ni usuarios abusivos. Al usar esta app, aceptas no publicar, compartir ni transmitir contenido que sea ilegal, difamatorio, obsceno, discriminatorio, amenazante, acosador, abusivo, pornografico o de cualquier otro modo objetable.',
+        ),
+        copy(
+          'You are solely responsible for the content you publish. The developer reserves the right to remove any content and suspend or terminate any account that violates these rules, at its sole discretion and without prior notice.',
+          'Eres el unico responsable del contenido que publicas. El desarrollador se reserva el derecho de eliminar cualquier contenido y suspender o cancelar cualquier cuenta que infrinja estas normas, a su entera discrecion y sin previo aviso.',
+        ),
+      ],
+    },
+    {
+      title: copy('Content filtering', 'Filtrado de contenido'),
+      paragraphs: [
+        copy(
+          'The app employs automated and manual methods to filter objectionable content before and after it is posted. Content that is flagged by the automated filters is held for review and not displayed publicly until it has been cleared.',
+          'La app utiliza metodos automaticos y manuales para filtrar contenido objetable antes y despues de su publicacion. El contenido senalado por los filtros automaticos se retiene para revision y no se muestra publicamente hasta que ha sido revisado.',
+        ),
+        copy(
+          'The developer continuously monitors the platform and reviews user-generated content to prevent the spread of material that violates these terms or applicable law.',
+          'El desarrollador supervisa la plataforma de forma continua y revisa el contenido generado por usuarios para evitar la difusion de material que incumpla estos terminos o la legislacion aplicable.',
+        ),
+      ],
+    },
+    {
+      title: copy('Reporting objectionable content', 'Denuncia de contenido objetable'),
+      paragraphs: [
+        copy(
+          'Users can flag or report objectionable content directly through the app using the built-in reporting feature available in every group chat and post. To report content, tap the flag or report icon next to the offending message or user, select a reason from the available categories, and submit the report.',
+          'Los usuarios pueden marcar o denunciar contenido objetable directamente desde la app utilizando la funcion de denuncia integrada disponible en cada chat de grupo y publicacion. Para denunciar contenido, toca el icono de bandera o denuncia junto al mensaje o usuario ofensivo, selecciona un motivo de las categorias disponibles y envia el informe.',
+        ),
+        copy(
+          'All reports are reviewed by the developer. Users who submit false or malicious reports may have their own accounts suspended.',
+          'Todas las denuncias son revisadas por el desarrollador. Los usuarios que envien denuncias falsas o maliciosas podran ver suspendidas sus propias cuentas.',
+        ),
+      ],
+    },
+    {
+      title: copy('Blocking abusive users', 'Bloqueo de usuarios abusivos'),
+      paragraphs: [
+        copy(
+          "Users can block any other user at any time through the app by accessing the offending user's profile or message and selecting the block option. Once a user is blocked, all content from that user is immediately removed from the blocking user's feed and the blocked user can no longer interact with or contact the blocking user.",
+          'Los usuarios pueden bloquear a cualquier otro usuario en cualquier momento desde la app accediendo al perfil o mensaje del usuario ofensivo y seleccionando la opcion de bloqueo. Una vez que un usuario es bloqueado, todo el contenido de ese usuario se elimina inmediatamente del feed del usuario que bloquea y el usuario bloqueado ya no puede interactuar ni contactar con el usuario que lo bloqueo.',
+        ),
+        copy(
+          'When a user is blocked, the developer is automatically notified of the block event along with the relevant context. This notification allows the developer to investigate the incident and take appropriate action.',
+          'Cuando un usuario es bloqueado, el desarrollador recibe una notificacion automatica del evento de bloqueo junto con el contexto relevante. Esta notificacion permite al desarrollador investigar el incidente y tomar las medidas oportunas.',
+        ),
+      ],
+    },
+    {
+      title: copy(
+        'Developer response and enforcement',
+        'Respuesta del desarrollador y aplicacion de medidas',
+      ),
+      paragraphs: [
+        copy(
+          'The developer commits to reviewing all reports of objectionable content within 24 hours. Upon confirming a violation, the developer will remove the offending content and may eject the user who provided it from the platform permanently. Account termination decisions are final.',
+          'El desarrollador se compromete a revisar todas las denuncias de contenido objetable en un plazo de 24 horas. Al confirmar una infraccion, el desarrollador eliminara el contenido ofensivo y podra expulsar al usuario que lo proporciono de la plataforma de forma permanente. Las decisiones de cancelacion de cuenta son definitivas.',
+        ),
+        copy(
+          'Repeated violations or severe first-time offenses may result in immediate and permanent account termination. The developer may also report illegal content or behavior to the relevant authorities.',
+          'Las infracciones repetidas o las infracciones graves cometidas por primera vez pueden dar lugar a la cancelacion inmediata y permanente de la cuenta. El desarrollador tambien podra denunciar contenidos o conductas ilegales ante las autoridades competentes.',
+        ),
+      ],
+    },
+    {
+      title: copy('Contact information', 'Informacion de contacto'),
+      paragraphs: [
+        copy(
+          'To report concerns, ask questions about these terms, or contact the developer for any reason, email drodriguez.apps@gmail.com. Users can also use the in-app reporting and blocking tools described above.',
+          'Para informar de problemas, hacer preguntas sobre estos terminos o contactar con el desarrollador por cualquier motivo, envia un correo a drodriguez.apps@gmail.com. Los usuarios tambien pueden utilizar las herramientas de denuncia y bloqueo descritas anteriormente dentro de la app.',
+        ),
+      ],
+    },
+    {
+      title: copy('Changes to this agreement', 'Cambios en este acuerdo'),
+      paragraphs: [
+        copy(
+          'This EULA may be updated from time to time. Users will be notified of material changes. Continued use of the app after changes take effect constitutes acceptance of the updated terms.',
+          'Este acuerdo de licencia puede actualizarse ocasionalmente. Los usuarios recibiran una notificacion de los cambios significativos. El uso continuado de la app despues de la entrada en vigor de los cambios constituye la aceptacion de los terminos actualizados.',
+        ),
+      ],
+    },
+  ],
+}
+
 export const termsDocument: LegalDocument = {
   title: copy('Terms and conditions', 'Terminos y condiciones'),
   summary: copy(

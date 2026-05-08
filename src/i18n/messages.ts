@@ -27,6 +27,7 @@ export const messages = {
       backToApps: 'Back to apps',
       policy: 'Privacy policy',
       terms: 'Terms and conditions',
+      eula: 'End-user license agreement (EULA)',
     },
     labels: {
       overview: 'Overview',
@@ -94,6 +95,7 @@ export const messages = {
       backToApps: 'Volver a las apps',
       policy: 'Politica de privacidad',
       terms: 'Terminos y condiciones',
+      eula: 'Acuerdo de licencia de usuario final (EULA)',
     },
     labels: {
       overview: 'Resumen',
