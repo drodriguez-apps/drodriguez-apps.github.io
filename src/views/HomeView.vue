@@ -49,7 +49,7 @@ usePageMeta({
             <RouterLink class="button-dark" :to="{ path: '/', hash: '#apps' }">
               {{ t('actions.browseApps') }}
             </RouterLink>
-            <a
+            <!-- <a
               class="button-secondary"
               :href="siteConfig.googlePlayDeveloperUrl"
               target="_blank"
@@ -57,6 +57,14 @@ usePageMeta({
             >
               {{ t('actions.openCatalog') }}
             </a>
+            <a
+              class="button-secondary"
+              :href="siteConfig.appStoreDeveloperUrl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ t('actions.openAppStoreCatalog') }}
+            </a> -->
             <a
               class="button-inline home-hero__linkedin"
               :href="siteConfig.linkedinUrl"
@@ -126,6 +134,14 @@ usePageMeta({
             rel="noreferrer"
           >
             {{ t('actions.openCatalog') }}
+          </a>
+          <a
+            class="button-secondary"
+            :href="siteConfig.appStoreDeveloperUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ t('actions.openAppStoreCatalog') }}
           </a>
         </div>
       </div>

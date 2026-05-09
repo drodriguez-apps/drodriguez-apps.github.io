@@ -49,9 +49,20 @@ const cardStyle = computed(() => ({
       </div>
 
       <div class="project-summary__actions">
-        <a class="button-dark" :href="project.storeUrl" target="_blank" rel="noreferrer">
-          {{ t('actions.openStore') }}
-        </a>
+        <div class="project-summary__store-links">
+          <a class="button-dark" :href="project.storeUrl" target="_blank" rel="noreferrer">
+            {{ t('actions.openStore') }}
+          </a>
+          <a
+            v-if="project.iosStoreUrl"
+            class="button-dark"
+            :href="project.iosStoreUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ t('actions.openAppStore') }}
+          </a>
+        </div>
         <div class="project-summary__legal-links">
           <RouterLink class="button-secondary" :to="`/${project.slug}/policy`">
             {{ t('actions.policy') }}
@@ -145,8 +156,20 @@ const cardStyle = computed(() => ({
   gap: 0.85rem;
 }
 
+.project-summary__store-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
 .project-summary__actions :deep(.button-dark) {
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .project-summary__store-links {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-summary__legal-links {

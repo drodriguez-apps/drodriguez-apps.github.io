@@ -50,7 +50,7 @@ usePageMeta({
       '@type': 'SoftwareApplication',
       name: project.value.storeTitle,
       applicationCategory: category.value,
-      operatingSystem: 'Android',
+      operatingSystem: 'Android, iOS',
       offers: {
         '@type': 'Offer',
         price: '0',
@@ -99,6 +99,15 @@ usePageMeta({
           <div class="button-row project-hero__actions">
             <a class="button-dark" :href="project.storeUrl" target="_blank" rel="noreferrer">
               {{ t('actions.openStore') }}
+            </a>
+            <a
+              v-if="project.iosStoreUrl"
+              class="button-dark"
+              :href="project.iosStoreUrl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ t('actions.openAppStore') }}
             </a>
             <RouterLink class="button-secondary" :to="`/${project.slug}/policy`">
               {{ t('actions.policy') }}

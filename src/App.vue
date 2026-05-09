@@ -67,6 +67,14 @@ useHead({
           >
             {{ t('actions.openCatalog') }}
           </a>
+          <a
+            class="site-footer__link"
+            :href="siteConfig.appStoreDeveloperUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ t('actions.openAppStoreCatalog') }}
+          </a>
           <div class="site-footer__locale">
             <LanguageToggle />
           </div>

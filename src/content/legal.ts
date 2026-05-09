@@ -30,8 +30,8 @@ export const privacyDocument: LegalDocument = {
           'Las apps y la web no dependen de cookies propias como funcionalidad principal, pero librerias y servicios de terceros pueden usar cookies o identificadores similares para mejorar sus propios servicios.',
         ),
         copy(
-          'Where relevant, users should also review the Data safety details published on Google Play and the privacy terms of external providers linked from the apps.',
-          'Cuando corresponda, las personas usuarias tambien deben revisar los detalles de seguridad de datos publicados en Google Play y las politicas de privacidad de los proveedores externos enlazados desde las apps.',
+          'Where relevant, users should also review the Data safety details published on Google Play and the App Store and the privacy terms of external providers linked from the apps.',
+          'Cuando corresponda, las personas usuarias tambien deben revisar los detalles de seguridad de datos publicados en Google Play y App Store y las politicas de privacidad de los proveedores externos enlazados desde las apps.',
         ),
       ],
     },
@@ -46,8 +46,8 @@ export const privacyDocument: LegalDocument = {
           'Pueden utilizarse empresas o personas terceras para facilitar el servicio, prestar funciones relacionadas o analizar el uso de las apps. Esos proveedores solo pueden acceder a informacion personal limitada cuando sea necesario para realizar su trabajo.',
         ),
         copy(
-          'The services can include links to third-party websites such as Google Play or LinkedIn. Daniel Rodriguez is not responsible for the privacy practices of those external sites.',
-          'Los servicios pueden incluir enlaces a sitios de terceros como Google Play o LinkedIn. Daniel Rodriguez no se hace responsable de las practicas de privacidad de esos sitios externos.',
+          'The services can include links to third-party websites such as Google Play, the App Store, or LinkedIn. Daniel Rodriguez is not responsible for the privacy practices of those external sites.',
+          'Los servicios pueden incluir enlaces a sitios de terceros como Google Play, App Store o LinkedIn. Daniel Rodriguez no se hace responsable de las practicas de privacidad de esos sitios externos.',
         ),
       ],
     },

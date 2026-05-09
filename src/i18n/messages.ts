@@ -20,10 +20,12 @@ export const messages = {
     actions: {
       browseApps: 'Browse apps',
       openCatalog: 'Open Google Play catalog',
+      openAppStoreCatalog: 'Open App Store catalog',
       email: 'Start a conversation',
       linkedin: 'LinkedIn profile',
       openProject: 'Open project',
       openStore: 'View on Google Play',
+      openAppStore: 'View on App Store',
       backToApps: 'Back to apps',
       policy: 'Privacy policy',
       terms: 'Terms and conditions',
@@ -49,10 +51,10 @@ export const messages = {
         'Reusable components, static rendering, and content-driven routes keep the portfolio fast while making every app easier to expand.',
       contactTitle: 'Need a mobile developer?',
       contactLead:
-        'I build Android products now and prepare them for iOS, marketing pages, and release-ready support content.',
+        'I build Android and iOS products, marketing pages, and release-ready support content.',
     },
     app: {
-      factsLead: 'Android is live today. iOS support is planned next.',
+      factsLead: 'Android and iOS are live today.',
       legalLead:
         'Each project can ship policy and terms routes without duplicating layout or content structure.',
       relatedLead: 'Explore more releases from the same product portfolio.',
@@ -88,10 +90,12 @@ export const messages = {
     actions: {
       browseApps: 'Ver apps',
       openCatalog: 'Abrir catalogo de Google Play',
+      openAppStoreCatalog: 'Abrir catalogo de App Store',
       email: 'Empezar una conversacion',
       linkedin: 'Perfil de LinkedIn',
       openProject: 'Abrir proyecto',
       openStore: 'Ver en Google Play',
+      openAppStore: 'Ver en App Store',
       backToApps: 'Volver a las apps',
       policy: 'Politica de privacidad',
       terms: 'Terminos y condiciones',
@@ -118,10 +122,10 @@ export const messages = {
         'Los componentes reutilizables, el renderizado estatico y las rutas guiadas por contenido mantienen el portfolio rapido y facil de ampliar.',
       contactTitle: 'Necesitas un desarrollador mobile?',
       contactLead:
-        'Construyo productos Android hoy y los preparo para iOS, paginas de marketing y contenido de soporte listo para publicar.',
+        'Construyo productos Android e iOS, paginas de marketing y contenido de soporte listo para publicar.',
     },
     app: {
-      factsLead: 'Android esta publicado hoy. El soporte para iOS esta previsto a continuacion.',
+      factsLead: 'Android e iOS estan publicados hoy.',
       legalLead:
         'Cada proyecto puede publicar rutas de politica y terminos sin duplicar layout ni estructura de contenido.',
       relatedLead: 'Explora mas lanzamientos del mismo portfolio.',

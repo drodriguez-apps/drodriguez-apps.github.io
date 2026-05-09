@@ -30,6 +30,7 @@ export interface AppProject {
   downloads: string
   rating?: string
   storeUrl: string
+  iosStoreUrl?: string
   iconUrl: string
   featureUrl: string
   featured: boolean
