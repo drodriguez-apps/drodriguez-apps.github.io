@@ -158,7 +158,6 @@ const cardStyle = computed(() => ({
 
 .project-summary__store-links {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 0.85rem;
 }
 
