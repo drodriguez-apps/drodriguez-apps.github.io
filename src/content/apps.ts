@@ -510,6 +510,68 @@ export const appProjects: AppProject[] = [
     },
   },
   {
+    slug: 'horas-extras',
+    name: 'Horas Extras',
+    storeTitle: 'Horas Extras: Calculadora LFT',
+    category: copy('Utilities', 'Utilidades'),
+    updatedLabel: copy('June 1, 2026', '1 de junio de 2026'),
+    summary: copy(
+      'A Mexican labor law calculator for overtime, Sunday premium, holiday pay, aguinaldo, salary conversion, and LFT article reference.',
+      'Una calculadora de ley federal del trabajo para horas extras, prima dominical, dia festivo, aguinaldo, conversion de salario y referencia de articulos de la LFT.',
+    ),
+    previewSummary: copy(
+      'Calculate overtime, Sunday premium, holiday pay, and aguinaldo under Mexican labor law.',
+      'Calcula horas extra, prima dominical, dia festivo y aguinaldo segun la Ley Federal del Trabajo.',
+    ),
+    description: [
+      copy(
+        'Horas Extras is a free, offline calculator that helps Mexican workers understand and verify their legal entitlements under the Ley Federal del Trabajo, covering overtime, Sunday premium, holiday pay, aguinaldo, and daily salary conversion.',
+        'Horas Extras es una calculadora gratuita y offline que ayuda a los trabajadores mexicanos a entender y verificar sus derechos bajo la Ley Federal del Trabajo, incluyendo horas extras, prima dominical, dia festivo, aguinaldo y conversion de salario diario.',
+      ),
+      copy(
+        'The app also provides a plain-language reference for key LFT articles and lets users track overtime hours worked, including payment status.',
+        'La app tambien ofrece una referencia en lenguaje claro de los articulos mas importantes de la LFT y permite registrar las horas extra trabajadas, incluyendo su estado de pago.',
+      ),
+    ],
+    highlights: [
+      {
+        title: copy('Multiple labor calculators', 'Multiples calculadoras laborales'),
+        description: copy(
+          'Overtime double and triple pay, 25% Sunday premium, holiday triple pay, aguinaldo proportional or full, and monthly-to-daily salary conversion.',
+          'Pago doble y triple por horas extras, 25% de prima dominical, pago triple en festivos, aguinaldo proporcional o completo, y conversion de salario mensual a diario.',
+        ),
+      },
+      {
+        title: copy('LFT article reference', 'Referencia de articulos LFT'),
+        description: copy(
+          'Read clear explanations of articles 58, 66-68, 71, 73-75, 76, and 87 covering workday limits, overtime, rest days, and benefits.',
+          'Lee explicaciones claras de los articulos 58, 66-68, 71, 73-75, 76 y 87 sobre jornada, horas extras, dias de descanso y prestaciones.',
+        ),
+      },
+      {
+        title: copy('Hour tracking with status', 'Registro de horas con estado'),
+        description: copy(
+          'Log overtime hours with date, rate, amount, and payment status to see what you are still owed at a glance.',
+          'Registra horas extra con fecha, tarifa, monto y estado de pago para ver lo que te deben de un vistazo.',
+        ),
+      },
+    ],
+    featureAlt: copy(
+      'Horas Extras calculator screens and labor rights reference.',
+      'Pantallas de la calculadora de Horas Extras y referencia de derechos laborales.',
+    ),
+    downloads: '1+',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.horasextra',
+    iconUrl: '/apps/horas-extras-icon.png',
+    featureUrl: '/apps/horas-extras-banner.png',
+    featured: false,
+    palette: {
+      accent: '#1a73e8',
+      soft: '#d4e4fc',
+      gradient: 'linear-gradient(135deg, #1a73e8 0%, #64b5f6 50%, #e3f2fd 100%)',
+    },
+  },
+  {
     slug: 'lucra',
     name: 'Lucra',
     storeTitle: 'Lucra: Total Money Control',
