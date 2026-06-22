@@ -14,7 +14,7 @@ if (!fs.existsSync(resolvedDistDir)) {
 const requiredPages = [
   {
     relativePath: 'index.html',
-    expectedContent: ['<title>DRodriguez Apps</title>', '<div id="app"'],
+    expectedContent: ['<title>Axis Labs</title>', '<div id="app"'],
   },
   {
     relativePath: '404.html',

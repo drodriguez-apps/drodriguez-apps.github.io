@@ -5,7 +5,7 @@ export const supportedLocales: SiteLocale[] = ['en', 'es']
 
 export const messages = {
   en: {
-    brand: 'DRodriguez Apps',
+    brand: 'Axis Labs',
     nav: {
       home: 'Home',
       apps: 'Apps',
@@ -19,10 +19,7 @@ export const messages = {
     },
     actions: {
       browseApps: 'Browse apps',
-      openCatalog: 'Open Google Play catalog',
-      openAppStoreCatalog: 'Open App Store catalog',
       email: 'Start a conversation',
-      linkedin: 'LinkedIn profile',
       openProject: 'Open project',
       openStore: 'View on Google Play',
       openAppStore: 'View on App Store',
@@ -35,29 +32,31 @@ export const messages = {
       overview: 'Overview',
       highlights: 'Highlights',
       legal: 'Legal',
-      related: 'More from the portfolio',
+      related: 'More apps',
       allApps: 'All apps',
     },
     home: {
-      eyebrow: 'Android apps, launch pages, and client-ready product storytelling',
-      title: 'A mobile app portfolio built to sell the product, not just list the screens.',
-      lead: 'This Vue site turns each app into a scalable route with bilingual copy, reusable sections, and dedicated legal pages for store compliance and client trust.',
-      featuredTitle: 'The Portfolio.',
+      eyebrow: 'Android and iOS apps built for real-world use',
+      title: 'A mobile development studio focused on shipping polished, scalable products.',
+      lead: 'This Vue site powers our app catalog with bilingual copy, reusable sections, and dedicated legal pages for store compliance.',
+      featuredTitle: 'Our Apps.',
+      featuredLead:
+        'We handle every aspect of app creation — design, front-end and back-end development, marketing websites, SEO, ASO, store screenshots, CI/CD, and beyond. A full-cycle approach, no hand-offs needed.',
       catalogTitle: 'Current app catalog',
       catalogLead:
         'Productivity, finance, education, and party concepts designed for clear, practical user flows.',
-      approachTitle: 'How I build',
+      approachTitle: 'How we build',
       approachLead:
-        'Reusable components, static rendering, and content-driven routes keep the portfolio fast while making every app easier to expand.',
+        'Reusable components, static rendering, and content-driven routes keep the site fast and every app easy to expand.',
       contactTitle: 'Need a mobile developer?',
       contactLead:
-        'I build Android and iOS products, marketing pages, and release-ready support content.',
+        'We build Android and iOS products, marketing pages, and release-ready support content.',
     },
     app: {
       factsLead: 'Android and iOS are live today.',
       legalLead:
         'Each project can ship policy and terms routes without duplicating layout or content structure.',
-      relatedLead: 'Explore more releases from the same product portfolio.',
+      relatedLead: 'Explore more releases from the same studio.',
     },
     legal: {
       intro: 'This document applies to',
@@ -66,16 +65,16 @@ export const messages = {
     footer: {
       navigate: 'Navigate',
       connect: 'Connect',
-      legalHint: 'Every project page includes dedicated privacy and terms routes.',
+      legalHint: 'Professional cross-platform apps built with Flutter and designed for quality.',
     },
     notFound: {
       title: 'Page not found',
-      lead: 'The route you requested is not available. Use the home page to browse the portfolio.',
+      lead: 'The route you requested is not available. Use the home page to browse our apps.',
       cta: 'Return home',
     },
   },
   es: {
-    brand: 'DRodriguez Apps',
+    brand: 'Axis Labs',
     nav: {
       home: 'Inicio',
       apps: 'Apps',
@@ -84,51 +83,49 @@ export const messages = {
       contact: 'Contacto',
     },
     locale: {
-      en: 'Ingles',
-      es: 'Espanol',
+      en: 'Inglés',
+      es: 'Español',
     },
     actions: {
       browseApps: 'Ver apps',
-      openCatalog: 'Abrir catalogo de Google Play',
-      openAppStoreCatalog: 'Abrir catalogo de App Store',
-      email: 'Empezar una conversacion',
-      linkedin: 'Perfil de LinkedIn',
+      email: 'Empezar una conversación',
       openProject: 'Abrir proyecto',
       openStore: 'Ver en Google Play',
       openAppStore: 'Ver en App Store',
       backToApps: 'Volver a las apps',
-      policy: 'Politica de privacidad',
-      terms: 'Terminos y condiciones',
+      policy: 'Política de privacidad',
+      terms: 'Términos y condiciones',
       eula: 'Acuerdo de licencia de usuario final (EULA)',
     },
     labels: {
       overview: 'Resumen',
       highlights: 'Puntos clave',
       legal: 'Legal',
-      related: 'Mas del portfolio',
+      related: 'Más apps',
       allApps: 'Todas las apps',
     },
     home: {
-      eyebrow:
-        'Apps Android, paginas de lanzamiento y presentacion de producto lista para clientes',
-      title: 'Un portfolio mobile pensado para vender el producto, no solo para listar pantallas.',
-      lead: 'Este sitio en Vue convierte cada app en una ruta escalable con copia bilingue, secciones reutilizables y paginas legales dedicadas para cumplimiento en tienda y confianza del cliente.',
-      featuredTitle: 'El portfolio.',
-      catalogTitle: 'Catalogo actual',
+      eyebrow: 'Apps Android e iOS creadas para uso real',
+      title: 'Un estudio de desarrollo mobile centrado en lanzar productos pulidos y escalables.',
+      lead: 'Este sitio en Vue impulsa nuestro catálogo de apps con copia bilingüe, secciones reutilizables y páginas legales dedicadas para cumplimiento en tienda.',
+      featuredTitle: 'Nuestras Apps.',
+      featuredLead:
+        'Manejamos cada aspecto de la creación de apps — diseño, front-end y back-end, sitios de marketing, SEO, ASO, capturas para la tienda, CI/CD y más. Un enfoque de ciclo completo, sin necesidad de terceros.',
+      catalogTitle: 'Catálogo actual',
       catalogLead:
-        'Productividad, finanzas, educacion y conceptos party pensados para flujos de uso claros y practicos.',
-      approachTitle: 'Como trabajo',
+        'Productividad, finanzas, educación y conceptos party pensados para flujos de uso claros y prácticos.',
+      approachTitle: 'Cómo trabajamos',
       approachLead:
-        'Los componentes reutilizables, el renderizado estatico y las rutas guiadas por contenido mantienen el portfolio rapido y facil de ampliar.',
-      contactTitle: 'Necesitas un desarrollador mobile?',
+        'Los componentes reutilizables, el renderizado estático y las rutas guiadas por contenido mantienen el sitio rápido y cada app fácil de ampliar.',
+      contactTitle: '¿Necesitas un desarrollador mobile?',
       contactLead:
-        'Construyo productos Android e iOS, paginas de marketing y contenido de soporte listo para publicar.',
+        'Construimos productos Android e iOS, páginas de marketing y contenido de soporte listo para publicar.',
     },
     app: {
-      factsLead: 'Android e iOS estan publicados hoy.',
+      factsLead: 'Android e iOS están publicados hoy.',
       legalLead:
-        'Cada proyecto puede publicar rutas de politica y terminos sin duplicar layout ni estructura de contenido.',
-      relatedLead: 'Explora mas lanzamientos del mismo portfolio.',
+        'Cada proyecto puede publicar rutas de política y términos sin duplicar layout ni estructura de contenido.',
+      relatedLead: 'Explora más lanzamientos del mismo estudio.',
     },
     legal: {
       intro: 'Este documento aplica a',
@@ -137,11 +134,11 @@ export const messages = {
     footer: {
       navigate: 'Navega',
       connect: 'Conecta',
-      legalHint: 'Cada pagina de proyecto incluye rutas propias de privacidad y terminos.',
+      legalHint: 'Apps multiplataforma profesionales, desarrolladas con Flutter y pensadas para la calidad.',
     },
     notFound: {
-      title: 'Pagina no encontrada',
-      lead: 'La ruta solicitada no esta disponible. Usa la portada para explorar el portfolio.',
+      title: 'Página no encontrada',
+      lead: 'La ruta solicitada no está disponible. Usa la portada para explorar nuestras apps.',
       cta: 'Volver al inicio',
     },
   },

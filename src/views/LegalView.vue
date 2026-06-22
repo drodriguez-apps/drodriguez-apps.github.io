@@ -42,7 +42,7 @@ usePageMeta({
   }),
   description: computed(() => pickLocalized(currentLocale.value, document.value.summary)),
   path: computed(() => `/${props.slug}/${documentPath.value}`),
-  image: computed(() => project.value?.featureUrl ?? `${siteConfig.baseUrl}/favicon.svg`),
+  image: computed(() => project.value?.featureUrl ?? `${siteConfig.baseUrl}/favicon.ico`),
   type: 'article',
 })
 </script>

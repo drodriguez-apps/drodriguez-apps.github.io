@@ -21,7 +21,7 @@ export function usePageMeta(options: MetaOptions) {
       const title = toValue(options.title)
       const description = toValue(options.description)
       const path = toValue(options.path)
-      const image = options.image ? toValue(options.image) : `${siteConfig.baseUrl}/favicon.svg`
+      const image = options.image ? toValue(options.image) : `${siteConfig.baseUrl}/favicon.ico`
       const schema = options.schema ? toValue(options.schema) : null
       const type = options.type ? toValue(options.type) : 'website'
       const canonicalUrl = `${siteConfig.baseUrl}${path}`

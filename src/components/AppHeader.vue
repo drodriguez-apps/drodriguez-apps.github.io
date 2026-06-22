@@ -3,8 +3,6 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import { siteConfig } from '@/content/site'
-
 const { t } = useI18n()
 
 const headerElement = ref<HTMLElement | null>(null)
@@ -44,8 +42,13 @@ onBeforeUnmount(() => {
   <header ref="headerElement" class="site-header">
     <div class="container site-header__content">
       <RouterLink class="site-header__brand" to="/">
-        <span class="site-header__brand-name">{{ siteConfig.brandName }}</span>
-        <span class="site-header__brand-dot">.</span>
+        <img
+          class="site-header__logo"
+          src="/images/axislabs-icon.png"
+          alt="Axis Labs"
+          width="48"
+          height="48"
+        />
       </RouterLink>
 
       <nav class="site-header__nav" aria-label="Primary navigation">
@@ -83,22 +86,12 @@ onBeforeUnmount(() => {
 .site-header__brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
   min-width: 0;
 }
 
-.site-header__brand-name {
-  font-family: var(--font-heading);
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-
-.site-header__brand-dot {
-  color: var(--color-accent);
-  font-family: var(--font-heading);
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  line-height: 0.9;
+.site-header__logo {
+  height: clamp(2.4rem, 4vw, 3rem);
+  width: auto;
 }
 
 .site-header__nav {

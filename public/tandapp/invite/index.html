@@ -222,10 +222,10 @@
   <body>
     <main class="card">
       <section class="hero">
-        <span class="eyebrow">Invite flow / Flujo de invitacion</span>
+        <span class="eyebrow">Invite flow / Flujo de invitación</span>
         <h1 id="heroTitle">Abriendo Tandapp…</h1>
         <p class="lead" id="heroLead">
-          Si la app ya esta instalada, este enlace debe llevarte directo a la tanda. If not, we will
+          Si la app ya está instalada, este enlace debe llevarte directo a la tanda. If not, we will
           send you to the app market.
         </p>
       </section>
@@ -239,10 +239,10 @@
 
         <div class="code-row" id="codeRow">
           <div>
-            <span class="code-label">Codigo de invitacion</span>
+            <span class="code-label">Código de invitación</span>
             <span class="code-value" id="inviteCodeValue">------</span>
           </div>
-          <button class="button ghost" id="copyCodeButton" type="button">Copiar codigo</button>
+          <button class="button ghost" id="copyCodeButton" type="button">Copiar código</button>
         </div>
 
         <div class="actions">
@@ -318,11 +318,11 @@
 
         function setInvalidInvite() {
           setView({
-            heroTitle: 'Invitacion incompleta',
+            heroTitle: 'Invitación incompleta',
             heroLead:
               'The invite code is missing. Ask your group for a fresh share link and try again.',
-            statusTitle: 'Este enlace no tiene un codigo valido.',
-            statusBody: 'Pidele a tu grupo que te comparta otra invitacion.',
+            statusTitle: 'Este enlace no tiene un código válido.',
+            statusBody: 'Pídele a tu grupo que te comparta otra invitación.',
             primaryLabel: 'Abrir Tandapp',
             secondaryLabel: 'Ir a la tienda',
           })
@@ -383,7 +383,7 @@
 
         inviteCodeValue.textContent = inviteCode || 'SIN CODIGO'
         copyCodeButton.addEventListener('click', function () {
-          copyValue(inviteCode, 'Codigo copiado', 'Copiar codigo')
+          copyValue(inviteCode, 'Código copiado', 'Copiar código')
         })
 
         document.addEventListener('visibilitychange', function () {
@@ -413,7 +413,7 @@
           openAppButton.href = publicInviteUrl
           openAppButton.addEventListener('click', function (event) {
             event.preventDefault()
-            copyValue(publicInviteUrl, 'Enlace copiado', 'Copiar codigo')
+            copyValue(publicInviteUrl, 'Enlace copiado', 'Copiar código')
           })
           storeButton.classList.add('hidden')
           return
@@ -423,7 +423,7 @@
           setView({
             heroTitle: 'Abriendo Tandapp…',
             heroLead:
-              'Si la app ya esta instalada, este enlace debe llevarte directo a la tanda. Si no, te llevaremos a Google Play.',
+              'Si la app ya está instalada, este enlace debe llevarte directo a la tanda. Si no, te llevaremos a Google Play.',
             statusTitle: 'Estamos intentando abrir la app.',
             statusBody: 'Si no pasa nada en unos segundos, usa los botones de abajo.',
             primaryLabel: 'Abrir Tandapp',
@@ -439,7 +439,7 @@
         setView({
           heroTitle: 'Abriendo Tandapp…',
           heroLead:
-            'Si Tandapp ya esta instalado, este enlace debe abrir la tanda. If not, we will send you to the App Store.',
+              'Si Tandapp ya está instalado, este enlace debe abrir la tanda. If not, we will send you to the App Store.',
           statusTitle: 'Estamos intentando abrir la app en tu iPhone.',
           statusBody: 'Si no pasa nada en unos segundos, te mandaremos al App Store.',
           primaryLabel: 'Abrir Tandapp',

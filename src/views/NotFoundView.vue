@@ -12,7 +12,7 @@ usePageMeta({
   title: computed(() => t('notFound.title')),
   description: computed(() => t('notFound.lead')),
   path: '/404',
-  image: `${siteConfig.baseUrl}/favicon.svg`,
+  image: `${siteConfig.baseUrl}/favicon.ico`,
 })
 </script>
 

@@ -51,30 +51,6 @@ useHead({
           <a class="site-footer__link" :href="'mailto:' + siteConfig.email">
             {{ t('actions.email') }}
           </a>
-          <a
-            class="site-footer__link"
-            :href="siteConfig.linkedinUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t('actions.linkedin') }}
-          </a>
-          <a
-            class="site-footer__link"
-            :href="siteConfig.googlePlayDeveloperUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t('actions.openCatalog') }}
-          </a>
-          <a
-            class="site-footer__link"
-            :href="siteConfig.appStoreDeveloperUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t('actions.openAppStoreCatalog') }}
-          </a>
           <div class="site-footer__locale">
             <LanguageToggle />
           </div>
@@ -174,7 +150,7 @@ main {
 
 .site-footer__locale :deep(.language-toggle__button--active) {
   background: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-text-on-accent);
 }
 
 @media (max-width: 860px) {

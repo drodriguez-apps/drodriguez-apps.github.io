@@ -1,15 +1,15 @@
 {
-  "name": "Drodriguez Apps",
-  "short_name": "DR Apps",
+  "name": "Axis Labs",
+  "short_name": "Axis Labs",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f4efe5",
-  "theme_color": "#0f6b63",
+  "background_color": "#ffffff",
+  "theme_color": "#005de9",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon",
       "purpose": "any"
     }
   ]

@@ -52,6 +52,6 @@ function setLocale(nextLocale: SiteLocale) {
 
 .language-toggle__button--active {
   background: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-text-on-accent);
 }
 </style>

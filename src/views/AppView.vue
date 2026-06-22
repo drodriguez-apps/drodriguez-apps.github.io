@@ -38,7 +38,7 @@ usePageMeta({
   title: computed(() => project.value?.storeTitle ?? siteConfig.brandName),
   description: summary,
   path: computed(() => `/${props.slug}`),
-  image: computed(() => project.value?.featureUrl ?? `${siteConfig.baseUrl}/favicon.svg`),
+  image: computed(() => project.value?.featureUrl ?? `${siteConfig.baseUrl}/favicon.ico`),
   type: 'article',
   schema: computed(() => {
     if (!project.value) {

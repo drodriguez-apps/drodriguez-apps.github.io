@@ -20,7 +20,7 @@ usePageMeta({
   title: computed(() => siteConfig.brandName),
   description: computed(() => pickLocalized(currentLocale.value, landingCopy.heroLead)),
   path: '/',
-  image: computed(() => appProjects[0]?.featureUrl ?? `${siteConfig.baseUrl}/favicon.svg`),
+  image: computed(() => appProjects[0]?.featureUrl ?? `${siteConfig.baseUrl}/favicon.ico`),
 })
 </script>
 
@@ -29,16 +29,14 @@ usePageMeta({
     <section class="home-hero grid-background">
       <div class="container home-hero__layout">
         <div class="home-hero__copy">
-          <p class="eyebrow">
-            <span class="eyebrow__dot" />
-            {{ pickLocalized(currentLocale, landingCopy.heroBadge) }}
-          </p>
-
           <h1 class="home-hero__title">
-            <span>{{ pickLocalized(currentLocale, landingCopy.heroTitleLead) }}</span>
-            <span class="text-highlight">{{
-              pickLocalized(currentLocale, landingCopy.heroTitleAccent)
-            }}</span>
+            <img
+              class="home-hero__logo"
+              src="/images/axislabs-logo.png"
+              :alt="siteConfig.brandName"
+              width="400"
+              height="80"
+            />
           </h1>
 
           <p class="home-hero__lead">
@@ -49,43 +47,17 @@ usePageMeta({
             <RouterLink class="button-dark" :to="{ path: '/', hash: '#apps' }">
               {{ t('actions.browseApps') }}
             </RouterLink>
-            <!-- <a
-              class="button-secondary"
-              :href="siteConfig.googlePlayDeveloperUrl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {{ t('actions.openCatalog') }}
-            </a>
-            <a
-              class="button-secondary"
-              :href="siteConfig.appStoreDeveloperUrl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {{ t('actions.openAppStoreCatalog') }}
-            </a> -->
-            <a
-              class="button-inline home-hero__linkedin"
-              :href="siteConfig.linkedinUrl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {{ t('actions.linkedin') }}
-            </a>
           </div>
         </div>
       </div>
     </section>
 
     <section class="home-proof">
-      <div class="container">
-        <div class="home-proof__marquee" aria-hidden="true">
-          <div class="home-proof__track">
-            <span v-for="(name, index) in marqueeProjects" :key="`${name}-${index}`">{{
-              name
-            }}</span>
-          </div>
+      <div class="home-proof__marquee" aria-hidden="true">
+        <div class="home-proof__track">
+          <span v-for="(name, index) in marqueeProjects" :key="`${name}-${index}`">{{
+            name
+          }}</span>
         </div>
       </div>
     </section>
@@ -98,6 +70,7 @@ usePageMeta({
             {{ t('nav.apps') }}
           </p>
           <h2>{{ t('home.featuredTitle') }}</h2>
+          <p class="home-section-lead">{{ t('home.featuredLead') }}</p>
         </div>
 
         <div class="home-apps__grid">
@@ -119,30 +92,6 @@ usePageMeta({
           <a class="button-dark" :href="`mailto:${siteConfig.email}`">
             {{ t('actions.email') }}
           </a>
-          <a
-            class="button-secondary"
-            :href="siteConfig.linkedinUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t('actions.linkedin') }}
-          </a>
-          <a
-            class="button-secondary"
-            :href="siteConfig.googlePlayDeveloperUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t('actions.openCatalog') }}
-          </a>
-          <a
-            class="button-secondary"
-            :href="siteConfig.appStoreDeveloperUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t('actions.openAppStoreCatalog') }}
-          </a>
         </div>
       </div>
     </section>
@@ -163,8 +112,11 @@ usePageMeta({
 
 .home-hero__copy {
   display: grid;
+  justify-items: center;
   gap: 1.25rem;
   max-width: 44rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .home-hero__title,
@@ -178,6 +130,11 @@ usePageMeta({
   gap: 0.3rem;
 }
 
+.home-hero__logo {
+  max-width: 100%;
+  height: auto;
+}
+
 .home-hero__lead,
 .home-cta__lead {
   margin: 0;
@@ -189,18 +146,6 @@ usePageMeta({
 .home-hero__actions,
 .home-cta__actions {
   align-items: center;
-}
-
-.home-hero__linkedin {
-  color: var(--color-text-muted);
-  font-size: 0.88rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.home-hero__linkedin:hover,
-.home-hero__linkedin:focus-visible {
-  color: var(--color-text);
 }
 
 .home-proof {
@@ -248,6 +193,7 @@ usePageMeta({
 .home-cta {
   border-top: 1px solid var(--color-border-light);
   background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
   padding: clamp(4.5rem, 9vw, 7rem) 0;
 }
 
@@ -263,7 +209,7 @@ usePageMeta({
 }
 
 .home-cta__lead {
-  color: rgba(23, 30, 25, 0.76);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @keyframes marquee {
@@ -277,7 +223,15 @@ usePageMeta({
 }
 
 @media (max-width: 680px) {
-  .home-apps__grid {
+.home-section-lead {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--color-text-muted);
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.home-apps__grid {
     grid-template-columns: 1fr;
   }
 }

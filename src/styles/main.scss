@@ -55,7 +55,7 @@ input {
 
 ::selection {
   background: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-text-on-accent);
 }
 
 .container {
@@ -163,6 +163,7 @@ input {
 .pill--accent {
   background: var(--color-accent);
   border-color: transparent;
+  color: var(--color-text-on-accent);
 }
 
 .button-row {
@@ -194,7 +195,7 @@ input {
 
 .button-primary {
   background: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-text-on-accent);
   box-shadow: var(--shadow-card);
 }
 
