@@ -1,3 +1,11 @@
+# IMPORTANT: This repo must be configured to use "GitHub Actions" as the
+# Pages source (Settings → Pages → Build and deployment → Source).
+# If set to "Deploy from a branch", GitHub's built-in pages-build-deployment
+# workflow will deploy the raw source (index.html referencing /src/main.ts)
+# whenever this custom workflow fails, breaking the live site.
+# This workflow cancels those competing runs as a safety net,
+# but the proper fix is the Pages source setting.
+
 name: Deploy static content to Pages
 
 on:
@@ -11,6 +19,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: 'pages'
@@ -23,6 +32,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Cancel competing pages-build-deployment runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          runs=$(gh run list --workflow=pages-build-deployment --status=in_progress --limit 10 --json databaseId -q '.[].databaseId' 2>/dev/null || echo '')
+          if [ -n "$runs" ]; then
+            for id in $runs; do
+              gh run cancel "$id" 2>/dev/null || true
+            done
+          fi
 
       - name: Set up Node
         uses: actions/setup-node@v6
@@ -60,7 +80,7 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url || steps.deploy3.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -72,9 +92,53 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Cancel lingering pages-build-deployment runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          runs=$(gh run list --workflow=pages-build-deployment --status=in_progress --limit 10 --json databaseId -q '.[].databaseId' 2>/dev/null || echo '')
+          if [ -n "$runs" ]; then
+            for id in $runs; do
+              gh run cancel "$id" 2>/dev/null || true
+            done
+            sleep 10
+          fi
+
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Wait and cancel competing runs (before retry 1)
+        if: steps.deploy.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep 30
+          runs=$(gh run list --workflow=pages-build-deployment --status=in_progress --limit 10 --json databaseId -q '.[].databaseId' 2>/dev/null || echo '')
+          if [ -n "$runs" ]; then
+            for id in $runs; do
+              gh run cancel "$id" 2>/dev/null || true
+            done
+          fi
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy2
+        if: steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Wait and cancel competing runs (before retry 2)
+        if: steps.deploy.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy3
+        if: steps.deploy.outcome == 'failure' && steps.deploy2.outcome == 'failure'
         uses: actions/deploy-pages@v5
 
       - name: Smoke test live Pages site
-        run: node scripts/check-pages-deployment.mjs "${{ steps.deployment.outputs.page_url }}"
+        if: steps.deploy.outcome == 'success' || steps.deploy2.outcome == 'success' || steps.deploy3.outcome == 'success'
+        run: |
+          PAGE_URL="${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url || steps.deploy3.outputs.page_url }}"
+          node scripts/check-pages-deployment.mjs "${PAGE_URL:-https://drodriguez-apps.github.io}"

@@ -1,0 +1,6 @@
+[     365ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://drodriguez-apps.github.io/site.webmanifest:0
+[     368ms] [ERROR] Manifest fetch from https://drodriguez-apps.github.io/site.webmanifest failed, code 404 @ https://drodriguez-apps.github.io/:0
+[     460ms] [ERROR] Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of "video/mp2t". Strict MIME type checking is enforced for module scripts per HTML spec. @ https://drodriguez-apps.github.io/src/main.ts:0
+[     490ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://drodriguez-apps.github.io/site.webmanifest:0
+[     493ms] [ERROR] Manifest fetch from https://drodriguez-apps.github.io/site.webmanifest failed, code 404 @ https://drodriguez-apps.github.io/:0
+[     625ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://drodriguez-apps.github.io/favicon.ico:0
