@@ -6,10 +6,7 @@ export const siteConfig = {
   brandName: 'Axis Labs',
   email: 'drodriguez.apps@gmail.com',
   baseUrl: 'https://drodriguez-apps.github.io',
-  location: copy(
-    'Building mobile products from Spain.',
-    'Creando productos móviles desde España.',
-  ),
+  location: copy('Building mobile products from Spain.', 'Creando productos móviles desde España.'),
 } as const
 
 export const landingCopy = {
@@ -23,7 +20,7 @@ export const landingCopy = {
   finalEyebrow: copy('Get in touch', 'Contáctanos'),
   finalTitle: copy("LET'S WORK TOGETHER", 'TRABAJEMOS JUNTOS'),
   finalLead: copy(
-    'Have an app idea? Let\'s discuss how we can bring it to life. Reach out by email and let\'s build something great.',
+    "Have an app idea? Let's discuss how we can bring it to life. Reach out by email and let's build something great.",
     '¿Tienes una idea para una app? Hablemos sobre cómo hacerla realidad. Escríbenos por correo y construyamos algo grande.',
   ),
 } as const

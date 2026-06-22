@@ -55,9 +55,7 @@ usePageMeta({
     <section class="home-proof">
       <div class="home-proof__marquee" aria-hidden="true">
         <div class="home-proof__track">
-          <span v-for="(name, index) in marqueeProjects" :key="`${name}-${index}`">{{
-            name
-          }}</span>
+          <span v-for="(name, index) in marqueeProjects" :key="`${name}-${index}`">{{ name }}</span>
         </div>
       </div>
     </section>
@@ -223,15 +221,15 @@ usePageMeta({
 }
 
 @media (max-width: 680px) {
-.home-section-lead {
-  margin: 0;
-  max-width: 42rem;
-  color: var(--color-text-muted);
-  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
-  line-height: 1.6;
-}
+  .home-section-lead {
+    margin: 0;
+    max-width: 42rem;
+    color: var(--color-text-muted);
+    font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+    line-height: 1.6;
+  }
 
-.home-apps__grid {
+  .home-apps__grid {
     grid-template-columns: 1fr;
   }
 }

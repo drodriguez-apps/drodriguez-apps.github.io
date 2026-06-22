@@ -134,7 +134,8 @@ export const messages = {
     footer: {
       navigate: 'Navega',
       connect: 'Conecta',
-      legalHint: 'Apps multiplataforma profesionales, desarrolladas con Flutter y pensadas para la calidad.',
+      legalHint:
+        'Apps multiplataforma profesionales, desarrolladas con Flutter y pensadas para la calidad.',
     },
     notFound: {
       title: 'Página no encontrada',
