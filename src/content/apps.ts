@@ -572,6 +572,68 @@ export const appProjects: AppProject[] = [
     },
   },
   {
+    slug: 'drivecam',
+    name: 'DriveCam',
+    storeTitle: 'DriveCam: Car Camera Recorder',
+    category: copy('Auto & Vehicles', 'Vehículos'),
+    updatedLabel: copy('July 9, 2026', '9 de julio de 2026'),
+    summary: copy(
+      'Turn your phone into a dashcam — loop recording, GPS speed overlay, and private storage without cluttering your photo gallery.',
+      'Convierte tu teléfono en una dashcam — grabación en bucle, velocidad GPS y almacenamiento privado sin llenar tu galería de fotos.',
+    ),
+    previewSummary: copy(
+      'Turn your phone into a dashcam with loop recording, GPS speed, and app-private storage.',
+      'Convierte tu teléfono en una dashcam con grabación en bucle, velocidad GPS y almacenamiento privado.',
+    ),
+    description: [
+      copy(
+        "DriveCam uses your phone's rear camera as a full-screen driving recorder with loop recording so you always have the latest footage. No dedicated hardware needed — just mount your phone and go. Every video stays private in the app's own storage. Nothing appears in your camera roll.",
+        'DriveCam usa la cámara trasera de tu móvil como grabador de conducción a pantalla completa con grabación en bucle, para que siempre tengas las últimas imágenes. No necesitas hardware adicional — solo monta tu teléfono y conduce. Todos los vídeos se guardan de forma privada en el almacenamiento de la app. Nada aparece en tu carrete.',
+      ),
+      copy(
+        'Choose from from different video resolutions and set a storage limit with automatic cleanup. Features include GPS speed overlay, battery save mode that dims the screen while recording, dark theme for night driving, and an in-app gallery for browsing, playing, and sharing recordings.',
+        'Elige entre diferentes resoluciones de video y configura un límite de almacenamiento con limpieza automática. Incluye velocidad GPS en pantalla, modo ahorro de batería que atenúa la pantalla mientras graba, tema oscuro para conducción nocturna y galería integrada para explorar, reproducir y compartir grabaciones.',
+      ),
+    ],
+    highlights: [
+      {
+        title: copy('Loop recording', 'Grabación en bucle'),
+        description: copy(
+          'Set segment length from 1 to 10 minutes. When one segment ends, it saves automatically and a new one begins — zero gaps, continuous protection.',
+          'Elige la duración de cada segmento entre 1 y 10 minutos. Cuando uno termina, se guarda automáticamente y comienza otro — sin interrupciones, protección continua.',
+        ),
+      },
+      {
+        title: copy('GPS speed overlay', 'Velocidad GPS en pantalla'),
+        description: copy(
+          'See your current speed right on the camera preview in km/h or mph. Speed data is burned into every recording for reference.',
+          'Ve tu velocidad actual sobre la vista de cámara en km/h o mph. Los datos de velocidad se graban en cada vídeo como referencia.',
+        ),
+      },
+      {
+        title: copy('Private storage', 'Almacenamiento privado'),
+        description: copy(
+          'All videos and photos are saved to an app-private folder. The OS gallery is never touched. No cloud uploads, no accidental shares.',
+          'Todos los vídeos y fotos se guardan en una carpeta privada de la app. La galería del sistema no se toca. Sin subidas a la nube, sin comparticiones accidentales.',
+        ),
+      },
+    ],
+    featureAlt: copy(
+      'DriveCam dashcam app interface showing camera preview with GPS speed overlay.',
+      'Interfaz de la app dashcam DriveCam mostrando la vista de cámara con velocidad GPS.',
+    ),
+    downloads: 'New',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.drivecam',
+    iconUrl: '/apps/drivecam-icon.jpg',
+    featureUrl: '/apps/drivecam-banner.jpg',
+    featured: false,
+    palette: {
+      accent: '#1b5e20',
+      soft: '#dcedc8',
+      gradient: 'linear-gradient(135deg, #0d1b2a 0%, #1b5e20 45%, #66bb6a 100%)',
+    },
+  },
+  {
     slug: 'lucra',
     name: 'Lucra',
     storeTitle: 'Lucra: Total Money Control',
