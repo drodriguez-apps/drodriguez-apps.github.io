@@ -4,6 +4,138 @@ const copy = (en: string, es: string): LocalizedText => ({ en, es })
 
 export const appProjects: AppProject[] = [
   {
+    slug: 'ai-sabotage',
+    name: 'AI Sabotage',
+    storeTitle: 'AI Sabotage: Cyber Cards',
+    category: copy('Card game', 'Juego de cartas'),
+    updatedLabel: copy('August 28, 2026', '28 de agosto de 2026'),
+    summary: copy(
+      'Build your AGI and sabotage rivals in this fast-paced cyberpunk card game.',
+      'Construye tu AGI y sabotea a tus rivales en este rápido juego de cartas ciberpunk.',
+    ),
+    previewSummary: copy(
+      'A strategic cyberpunk card game about building AGI and sabotaging rivals.',
+      'Un juego de cartas ciberpunk estratégico sobre construir AGI y sabotear rivales.',
+    ),
+    description: [
+      copy(
+        'AI Sabotage: Cyber Cards is a fast-paced, strategic set-collection card game set in a dystopian cyberpunk future. Your ultimate goal is to be the first to build a fully functional Artificial General Intelligence (AGI) while ruthlessly preventing your opponents from doing the same.',
+        'AI Sabotage: Cyber Cards es un juego de cartas de recolección estratégica y de ritmo rápido ambientado en un futuro ciberpunk distópico. Tu objetivo final es ser el primero en construir una Inteligencia General Artificial (AGI) completamente funcional mientras impides sin piedad que tus oponentes hagan lo mismo.',
+      ),
+      copy(
+        'In this highly competitive game against CPU opponents, you must carefully balance building your own system (your Rig) and deploying malicious malware to sabotage your rivals. Every turn counts, and a single hack can change the course of the match.',
+        'En este juego altamente competitivo contra oponentes CPU, debes equilibrar cuidadosamente la construcción de tu propio sistema (tu Rig) y el despliegue de malware malicioso para sabotear a tus rivales. Cada turno cuenta, y un solo hackeo puede cambiar el curso de la partida.',
+      ),
+      copy(
+        'Build your Rig by collecting Hardware, Datasets, Neural Nets, and Algorithms. Discover the rare Quantum Core, a powerful multicolor wildcard that fits anywhere. Play Threats to infect and disable enemy Components, or use Defenses to protect your own. Stack two Defenses on a single Component to permanently Lock it, making it indestructible.',
+        'Construye tu Rig recolectando Hardware, Datasets, Neural Nets y Algorithms. Descubre el Quantum Core, un poderoso comodín multicolor que encaja en cualquier lugar. Juega Threats para infectar y desactivar Componentes enemigos, o usa Defenses para proteger los tuyos. Apila dos Defenses en un solo Componente para Bloquearlo permanentemente, haciéndolo indestructible.',
+      ),
+      copy(
+        'Execute Special Protocols to turn the tide of the match — steal components, swap entire Rigs, migrate malware, or unleash a devastating EMP Purge. On your turn, you can only play exactly 1 card or discard up to 3 cards to refresh your hand. Do you have the strategy to protect your network, hack your rivals, and build the ultimate AGI?',
+        'Ejecuta Special Protocols para cambiar el rumbo de la partida — roba componentes, intercambia Rigs completos, migra malware o desata un devastador EMP Purge. En tu turno, solo puedes jugar exactamente 1 carta o descartar hasta 3 cartas para refrescar tu mano. ¿Tienes la estrategia para proteger tu red, hackear a tus rivales y construir la AGI definitiva?',
+      ),
+    ],
+    highlights: [
+      {
+        title: copy('Build your AGI', 'Construye tu AGI'),
+        description: copy(
+          'Collect 4 different healthy Components — Hardware, Datasets, Neural Nets, and Algorithms — to assemble a fully functional Artificial General Intelligence before your rivals.',
+          'Recolecta 4 Componentes sanos diferentes — Hardware, Datasets, Neural Nets y Algorithms — para ensamblar una Inteligencia General Artificial completamente funcional antes que tus rivales.',
+        ),
+      },
+      {
+        title: copy('Sabotage and defend', 'Sabotea y defiende'),
+        description: copy(
+          'Deploy Threats to infect enemy Components, or stack two Defenses to permanently Lock your own. A single hack can destroy an entire stack and change the match.',
+          'Despliega Threats para infectar componentes enemigos, o apila dos Defenses para Bloquear permanentemente los tuyos. Un solo hackeo puede destruir un stack completo y cambiar la partida.',
+        ),
+      },
+      {
+        title: copy('Special protocols', 'Protocolos especiales'),
+        description: copy(
+          'Execute powerful action cards to steal components, swap Rigs, migrate malware, or unleash an EMP Purge that forces opponents to discard their entire hand.',
+          'Ejecuta cartas de acción poderosas para robar componentes, intercambiar Rigs, migrar malware o desatar un EMP Purge que obliga a los oponentes a descartar toda su mano.',
+        ),
+      },
+    ],
+    featureAlt: copy(
+      'AI Sabotage cyberpunk card game interface with neon-lit components and sabotage actions.',
+      'Interfaz del juego de cartas ciberpunk AI Sabotage con componentes iluminados de neón y acciones de sabotaje.',
+    ),
+    downloads: 'New',
+    storeUrl: '',
+    iconUrl: '/apps/ai-sabotage-icon.png',
+    featureUrl: '/apps/ai-sabotage-banner.png',
+    featured: false,
+    palette: {
+      accent: '#00d4ff',
+      soft: '#d0f7ff',
+      gradient: 'linear-gradient(135deg, #0a0a2e 0%, #00d4ff 45%, #ff00ff 100%)',
+    },
+  },
+  {
+    slug: 'drivecam',
+    name: 'DriveCam',
+    storeTitle: 'DriveCam: Car Camera Recorder',
+    category: copy('Auto & Vehicles', 'Vehículos'),
+    updatedLabel: copy('July 9, 2026', '9 de julio de 2026'),
+    summary: copy(
+      'Turn your phone into a dashcam — loop recording, GPS speed overlay, and private storage without cluttering your photo gallery.',
+      'Convierte tu teléfono en una dashcam — grabación en bucle, velocidad GPS y almacenamiento privado sin llenar tu galería de fotos.',
+    ),
+    previewSummary: copy(
+      'Turn your phone into a dashcam with loop recording, GPS speed, and app-private storage.',
+      'Convierte tu teléfono en una dashcam con grabación en bucle, velocidad GPS y almacenamiento privado.',
+    ),
+    description: [
+      copy(
+        "DriveCam uses your phone's rear camera as a full-screen driving recorder with loop recording so you always have the latest footage. No dedicated hardware needed — just mount your phone and go. Every video stays private in the app's own storage. Nothing appears in your camera roll.",
+        'DriveCam usa la cámara trasera de tu móvil como grabador de conducción a pantalla completa con grabación en bucle, para que siempre tengas las últimas imágenes. No necesitas hardware adicional — solo monta tu teléfono y conduce. Todos los vídeos se guardan de forma privada en el almacenamiento de la app. Nada aparece en tu carrete.',
+      ),
+      copy(
+        'Choose from from different video resolutions and set a storage limit with automatic cleanup. Features include GPS speed overlay, battery save mode that dims the screen while recording, dark theme for night driving, and an in-app gallery for browsing, playing, and sharing recordings.',
+        'Elige entre diferentes resoluciones de video y configura un límite de almacenamiento con limpieza automática. Incluye velocidad GPS en pantalla, modo ahorro de batería que atenúa la pantalla mientras graba, tema oscuro para conducción nocturna y galería integrada para explorar, reproducir y compartir grabaciones.',
+      ),
+    ],
+    highlights: [
+      {
+        title: copy('Loop recording', 'Grabación en bucle'),
+        description: copy(
+          'Set segment length from 1 to 10 minutes. When one segment ends, it saves automatically and a new one begins — zero gaps, continuous protection.',
+          'Elige la duración de cada segmento entre 1 y 10 minutos. Cuando uno termina, se guarda automáticamente y comienza otro — sin interrupciones, protección continua.',
+        ),
+      },
+      {
+        title: copy('GPS speed overlay', 'Velocidad GPS en pantalla'),
+        description: copy(
+          'See your current speed right on the camera preview in km/h or mph. Speed data is burned into every recording for reference.',
+          'Ve tu velocidad actual sobre la vista de cámara en km/h o mph. Los datos de velocidad se graban en cada vídeo como referencia.',
+        ),
+      },
+      {
+        title: copy('Private storage', 'Almacenamiento privado'),
+        description: copy(
+          'All videos and photos are saved to an app-private folder. The OS gallery is never touched. No cloud uploads, no accidental shares.',
+          'Todos los vídeos y fotos se guardan en una carpeta privada de la app. La galería del sistema no se toca. Sin subidas a la nube, sin comparticiones accidentales.',
+        ),
+      },
+    ],
+    featureAlt: copy(
+      'DriveCam dashcam app interface showing camera preview with GPS speed overlay.',
+      'Interfaz de la app dashcam DriveCam mostrando la vista de cámara con velocidad GPS.',
+    ),
+    downloads: 'New',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.drivecam',
+    iconUrl: '/apps/drivecam-icon.jpg',
+    featureUrl: '/apps/drivecam-banner.jpg',
+    featured: false,
+    palette: {
+      accent: '#1b5e20',
+      soft: '#dcedc8',
+      gradient: 'linear-gradient(135deg, #0d1b2a 0%, #1b5e20 45%, #66bb6a 100%)',
+    },
+  },
+  {
     slug: 'my-rents',
     name: 'My Rents',
     storeTitle: 'My Rents: Property Manager Pro',
@@ -569,68 +701,6 @@ export const appProjects: AppProject[] = [
       accent: '#1a73e8',
       soft: '#d4e4fc',
       gradient: 'linear-gradient(135deg, #1a73e8 0%, #64b5f6 50%, #e3f2fd 100%)',
-    },
-  },
-  {
-    slug: 'drivecam',
-    name: 'DriveCam',
-    storeTitle: 'DriveCam: Car Camera Recorder',
-    category: copy('Auto & Vehicles', 'Vehículos'),
-    updatedLabel: copy('July 9, 2026', '9 de julio de 2026'),
-    summary: copy(
-      'Turn your phone into a dashcam — loop recording, GPS speed overlay, and private storage without cluttering your photo gallery.',
-      'Convierte tu teléfono en una dashcam — grabación en bucle, velocidad GPS y almacenamiento privado sin llenar tu galería de fotos.',
-    ),
-    previewSummary: copy(
-      'Turn your phone into a dashcam with loop recording, GPS speed, and app-private storage.',
-      'Convierte tu teléfono en una dashcam con grabación en bucle, velocidad GPS y almacenamiento privado.',
-    ),
-    description: [
-      copy(
-        "DriveCam uses your phone's rear camera as a full-screen driving recorder with loop recording so you always have the latest footage. No dedicated hardware needed — just mount your phone and go. Every video stays private in the app's own storage. Nothing appears in your camera roll.",
-        'DriveCam usa la cámara trasera de tu móvil como grabador de conducción a pantalla completa con grabación en bucle, para que siempre tengas las últimas imágenes. No necesitas hardware adicional — solo monta tu teléfono y conduce. Todos los vídeos se guardan de forma privada en el almacenamiento de la app. Nada aparece en tu carrete.',
-      ),
-      copy(
-        'Choose from from different video resolutions and set a storage limit with automatic cleanup. Features include GPS speed overlay, battery save mode that dims the screen while recording, dark theme for night driving, and an in-app gallery for browsing, playing, and sharing recordings.',
-        'Elige entre diferentes resoluciones de video y configura un límite de almacenamiento con limpieza automática. Incluye velocidad GPS en pantalla, modo ahorro de batería que atenúa la pantalla mientras graba, tema oscuro para conducción nocturna y galería integrada para explorar, reproducir y compartir grabaciones.',
-      ),
-    ],
-    highlights: [
-      {
-        title: copy('Loop recording', 'Grabación en bucle'),
-        description: copy(
-          'Set segment length from 1 to 10 minutes. When one segment ends, it saves automatically and a new one begins — zero gaps, continuous protection.',
-          'Elige la duración de cada segmento entre 1 y 10 minutos. Cuando uno termina, se guarda automáticamente y comienza otro — sin interrupciones, protección continua.',
-        ),
-      },
-      {
-        title: copy('GPS speed overlay', 'Velocidad GPS en pantalla'),
-        description: copy(
-          'See your current speed right on the camera preview in km/h or mph. Speed data is burned into every recording for reference.',
-          'Ve tu velocidad actual sobre la vista de cámara en km/h o mph. Los datos de velocidad se graban en cada vídeo como referencia.',
-        ),
-      },
-      {
-        title: copy('Private storage', 'Almacenamiento privado'),
-        description: copy(
-          'All videos and photos are saved to an app-private folder. The OS gallery is never touched. No cloud uploads, no accidental shares.',
-          'Todos los vídeos y fotos se guardan en una carpeta privada de la app. La galería del sistema no se toca. Sin subidas a la nube, sin comparticiones accidentales.',
-        ),
-      },
-    ],
-    featureAlt: copy(
-      'DriveCam dashcam app interface showing camera preview with GPS speed overlay.',
-      'Interfaz de la app dashcam DriveCam mostrando la vista de cámara con velocidad GPS.',
-    ),
-    downloads: 'New',
-    storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.drivecam',
-    iconUrl: '/apps/drivecam-icon.jpg',
-    featureUrl: '/apps/drivecam-banner.jpg',
-    featured: false,
-    palette: {
-      accent: '#1b5e20',
-      soft: '#dcedc8',
-      gradient: 'linear-gradient(135deg, #0d1b2a 0%, #1b5e20 45%, #66bb6a 100%)',
     },
   },
   {
