@@ -71,11 +71,23 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Create Pages artifact (including .well-known)
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            -C dist .
+          echo "Artifact content (including hidden):"
+          tar -tf "$RUNNER_TEMP/artifact.tar" | grep -E "well-known|nojekyll" || echo "MISSING dotfiles!"
+          tar -tf "$RUNNER_TEMP/artifact.tar" | wc -l | xargs echo "Total files in artifact:"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: './dist'
-          include-hidden-files: true
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     needs: build
