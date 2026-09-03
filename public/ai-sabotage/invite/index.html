@@ -366,11 +366,7 @@
             encodeURIComponent(playStoreUrl) +
             ';end'
           : playStoreUrl
-        // iOS: try aisabotage custom scheme first, fallback to supabase scheme for backward compat
         var iosCustomUrl = inviteCode
-          ? 'aisabotage://join?code=' + encodedCode
-          : 'aisabotage://join'
-        var iosSupabaseUrl = inviteCode
           ? 'supabase.cdjranuethtszqokosjn://join/' + encodedCode
           : 'supabase.cdjranuethtszqokosjn://'
 
@@ -437,19 +433,7 @@
         openAppButton.href = iosCustomUrl
         storeButton.href = appStoreUrl
         scheduleFallback(appStoreUrl)
-        // Try custom scheme, with supabase fallback after short delay if needed
         window.location.href = iosCustomUrl
-        // Secondary fallback to supabase scheme if aisabotage not handled (older builds)
-        setTimeout(function () {
-          // only if still visible, try supabase scheme as well before store fallback
-          if (!document.hidden) {
-            // don't override fallback timer, just attempt
-            var ifr = document.createElement('iframe')
-            ifr.style.display = 'none'
-            ifr.src = iosSupabaseUrl
-            document.body.appendChild(ifr)
-          }
-        }, 400)
       })()
     </script>
   </body>
