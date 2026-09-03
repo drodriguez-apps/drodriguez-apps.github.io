@@ -53,8 +53,25 @@
           window.location.replace(target + window.location.hash)
         }
 
+        function redirectToInviteAI(parts, codeIndex) {
+          var inviteCode = parts.length > codeIndex ? normalizeCode(parts[codeIndex]) : ''
+          var target =
+            '/ai-sabotage/invite/' + (inviteCode ? '?code=' + encodeURIComponent(inviteCode) : '')
+          window.location.replace(target + window.location.hash)
+        }
+
         if (normalizedPath.indexOf('/tandapp/invite/') === 0) {
           redirectToInvite(normalizedPath.split('/').filter(Boolean), 2)
+          return
+        }
+
+        if (normalizedPath.indexOf('/ai-sabotage/invite/') === 0) {
+          redirectToInviteAI(normalizedPath.split('/').filter(Boolean), 2)
+          return
+        }
+
+        if (normalizedPath.indexOf('/ai-sabotage/join/') === 0) {
+          redirectToInviteAI(normalizedPath.split('/').filter(Boolean), 2)
           return
         }
 

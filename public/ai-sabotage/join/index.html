@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/ai-sabotage/invite/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting to rig | AI Sabotage</title>
+    <script>
+      ;(function redirectInvite() {
+        var url = new URL(window.location.href)
+        function normalizeCode(v) {
+          return (v || '')
+            .trim()
+            .toUpperCase()
+            .replace(/[^A-Z0-9]/g, '')
+        }
+        function readInviteCode() {
+          var direct = normalizeCode(
+            url.searchParams.get('code') || url.searchParams.get('inviteCode'),
+          )
+          if (direct) return direct
+          var segs = url.pathname.split('/').filter(Boolean)
+          var offset = segs[0] === 'ai-sabotage' ? 1 : 0
+          if (segs.length > offset + 1 && (segs[offset] === 'join' || segs[offset] === 'invite')) {
+            return normalizeCode(segs[offset + 1])
+          }
+          return ''
+        }
+        var code = readInviteCode()
+        var target = '/ai-sabotage/invite/' + (code ? '?code=' + encodeURIComponent(code) : '')
+        window.location.replace(target + window.location.hash)
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>

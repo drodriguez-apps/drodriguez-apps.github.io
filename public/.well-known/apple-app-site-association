@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "J3KSYY98Z3.com.drodriguez.tandapp",
+        "paths": ["/tandapp/invite/*", "/tandaap/join/*", "/invite/*"]
+      },
+      {
+        "appID": "J3KSYY98Z3.com.axislabs.aisabotage",
+        "paths": ["/ai-sabotage/invite/*", "/ai-sabotage/join/*"]
+      }
+    ]
+  }
+}

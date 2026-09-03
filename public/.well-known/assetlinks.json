@@ -11,5 +11,18 @@
         "85:D6:24:CC:96:B2:23:FA:B8:A0:97:86:6B:AA:BD:59:31:E7:6C:3B:A9:CB:39:F6:01:DF:39:3E:69:48:FC:21"
       ]
     }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.axislabs.aisabotage",
+      "sha256_cert_fingerprints": [
+        "85:D6:24:CC:96:B2:23:FA:B8:A0:97:86:6B:AA:BD:59:31:E7:6C:3B:A9:CB:39:F6:01:DF:39:3E:69:48:FC:21"
+      ]
+    }
   }
 ]

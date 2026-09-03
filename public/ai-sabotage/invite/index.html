@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Join Private Rig | AI Sabotage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --background: #0d0d12;
+        --card: #15151e;
+        --card-alt: #1c1c28;
+        --ink: #e8f0ff;
+        --muted: #7a8699;
+        --line: #2a2a3a;
+        --accent: #00d0ff;
+        --accent-strong: #00a8cc;
+        --accent-soft: rgba(0, 208, 255, 0.12);
+        --shadow: 0 32px 86px rgba(0, 0, 0, 0.45);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--ink);
+        background: var(--background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 36px 36px;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      .card {
+        width: min(100%, 560px);
+        border-radius: 16px;
+        border: 1.5px solid var(--line);
+        background: var(--card);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        position: relative;
+      }
+      .hero {
+        padding: 26px 24px 18px;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent 55%);
+        border-bottom: 1px solid var(--line);
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border: 1px solid rgba(0, 212, 255, 0.25);
+      }
+      .eyebrow::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 8px var(--accent);
+      }
+      h1 {
+        margin: 18px 0 12px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: clamp(1.8rem, 7vw, 2.6rem);
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .lead,
+      .helper,
+      .footer {
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 13px;
+      }
+      .lead {
+        margin: 0;
+      }
+      .body {
+        padding: 0 24px 24px;
+      }
+      .status {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 12px;
+        background: var(--card-alt);
+        border: 1px solid var(--line);
+      }
+      .status strong {
+        display: block;
+        font-size: 13px;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+      }
+      .code-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 14px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: var(--background);
+        border: 1.5px solid var(--accent);
+        box-shadow: 0 0 16px rgba(0, 212, 255, 0.15);
+      }
+      .code-label {
+        display: block;
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .code-value {
+        display: block;
+        margin-top: 4px;
+        font-family: 'Orbitron';
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+      }
+      .actions {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 52px;
+        padding: 0 18px;
+        border-radius: 8px;
+        border: 1.5px solid var(--line);
+        background: transparent;
+        color: var(--muted);
+        font-family: 'Orbitron';
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 180ms ease;
+      }
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+      .button.primary {
+        border-color: var(--accent);
+        background: rgba(0, 212, 255, 0.14);
+        color: var(--accent);
+        box-shadow: 0 0 16px rgba(0, 212, 255, 0.25);
+      }
+      .button.primary:hover {
+        background: rgba(0, 212, 255, 0.22);
+      }
+      .footer {
+        margin-top: 18px;
+        font-size: 11px;
+        text-align: center;
+      }
+      .hidden {
+        display: none !important;
+      }
+      @media (max-width: 520px) {
+        .card {
+          border-radius: 12px;
+        }
+        .hero,
+        .body {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .code-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <section class="hero">
+        <span class="eyebrow">Private rig • Invitación privada</span>
+        <h1 id="heroTitle">Opening AI Sabotage…</h1>
+        <p class="lead" id="heroLead">
+          If the app is installed, this link should take you directly to the private rig. If not,
+          we'll send you to the store.
+        </p>
+      </section>
+      <section class="body">
+        <div class="status">
+          <strong id="statusTitle">Trying to open the app…</strong>
+          <p class="helper" id="statusBody">
+            If nothing happens in a few seconds, use the buttons below.
+          </p>
+        </div>
+        <div class="code-row" id="codeRow">
+          <div>
+            <span class="code-label">Rig code</span>
+            <span class="code-value" id="inviteCodeValue">------</span>
+          </div>
+          <button
+            class="button"
+            id="copyCodeButton"
+            type="button"
+            style="width: auto; min-height: 42px; padding: 0 14px"
+          >
+            Copy code
+          </button>
+        </div>
+        <div class="actions">
+          <a class="button primary" id="openAppButton" href="#">Open AI Sabotage</a>
+          <a class="button" id="storeButton" href="#">Go to store</a>
+        </div>
+        <p class="footer">
+          Private rigs are invite-only and don't affect global ranking. Share the code or link with
+          up to 3 friends.
+        </p>
+      </section>
+    </main>
+    <script>
+      ;(function inviteLanding() {
+        var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.axislabs.aisabotage'
+        var appStoreUrl = 'https://apps.apple.com/search?term=AI%20Sabotage'
+        var packageName = 'com.axislabs.aisabotage'
+        var inviteBaseUrl = 'https://axislabs.eu/ai-sabotage/invite/'
+        var inviteHost = 'axislabs.eu'
+        var invitePath = '/ai-sabotage/invite/'
+        var url = new URL(window.location.href)
+        var heroTitle = document.getElementById('heroTitle')
+        var heroLead = document.getElementById('heroLead')
+        var statusTitle = document.getElementById('statusTitle')
+        var statusBody = document.getElementById('statusBody')
+        var inviteCodeValue = document.getElementById('inviteCodeValue')
+        var copyCodeButton = document.getElementById('copyCodeButton')
+        var openAppButton = document.getElementById('openAppButton')
+        var storeButton = document.getElementById('storeButton')
+        var fallbackTimer = null
+        var userAgent = window.navigator.userAgent || ''
+        var isAndroid = /Android/i.test(userAgent)
+        var isIos = /iPhone|iPad|iPod/i.test(userAgent)
+        var isMobile = isAndroid || isIos
+
+        function normalizeCode(rawValue) {
+          return (rawValue || '')
+            .trim()
+            .toUpperCase()
+            .replace(/[^A-Z0-9]/g, '')
+        }
+        function readInviteCode() {
+          var directCode = normalizeCode(
+            url.searchParams.get('code') ||
+              url.searchParams.get('inviteCode') ||
+              url.searchParams.get('invite_code'),
+          )
+          if (directCode) return directCode
+          var segments = url.pathname.split('/').filter(Boolean)
+          // handle /ai-sabotage/invite/<code> or /ai-sabotage/join/<code>
+          var offset = segments[0] === 'ai-sabotage' ? 1 : 0
+          if (
+            segments.length > offset + 1 &&
+            (segments[offset] === 'join' || segments[offset] === 'invite')
+          ) {
+            return normalizeCode(segments[offset + 1])
+          }
+          // also support legacy /ai_sabotage style or just /invite/<code>
+          if (segments.length >= 2 && (segments[0] === 'invite' || segments[0] === 'join')) {
+            return normalizeCode(segments[1])
+          }
+          return ''
+        }
+        function setView(copy) {
+          heroTitle.textContent = copy.heroTitle
+          heroLead.textContent = copy.heroLead
+          statusTitle.textContent = copy.statusTitle
+          statusBody.textContent = copy.statusBody
+          openAppButton.textContent = copy.primaryLabel
+          storeButton.textContent = copy.secondaryLabel
+        }
+        function setInvalidInvite() {
+          setView({
+            heroTitle: 'Invalid invite',
+            heroLead: 'The invite code is missing. Ask your friend for a fresh share link.',
+            statusTitle: 'No valid rig code in this link.',
+            statusBody: 'Ask for a new invitation.',
+            primaryLabel: 'Open AI Sabotage',
+            secondaryLabel: 'Go to store',
+          })
+          copyCodeButton.disabled = true
+          openAppButton.classList.add('hidden')
+          storeButton.classList.add('hidden')
+        }
+        function copyValue(value, successLabel, idleLabel) {
+          if (!value) return
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(value).then(function () {
+              copyCodeButton.textContent = successLabel
+              window.setTimeout(function () {
+                copyCodeButton.textContent = idleLabel
+              }, 1600)
+            })
+            return
+          }
+          copyCodeButton.textContent = value
+        }
+        function cancelFallback() {
+          if (fallbackTimer !== null) {
+            window.clearTimeout(fallbackTimer)
+            fallbackTimer = null
+          }
+        }
+        function scheduleFallback(targetUrl) {
+          cancelFallback()
+          fallbackTimer = window.setTimeout(function () {
+            if (!document.hidden) window.location.replace(targetUrl)
+          }, 1700)
+        }
+        var inviteCode = readInviteCode()
+        var encodedCode = encodeURIComponent(inviteCode)
+        var publicInviteUrl = inviteCode ? inviteBaseUrl + encodedCode : inviteBaseUrl
+        var androidIntentUrl = inviteCode
+          ? 'intent://' +
+            inviteHost +
+            invitePath +
+            encodedCode +
+            '#Intent;scheme=https;package=' +
+            packageName +
+            ';action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;S.browser_fallback_url=' +
+            encodeURIComponent(playStoreUrl) +
+            ';end'
+          : playStoreUrl
+        // iOS: try aisabotage custom scheme first, fallback to supabase scheme for backward compat
+        var iosCustomUrl = inviteCode
+          ? 'aisabotage://join?code=' + encodedCode
+          : 'aisabotage://join'
+        var iosSupabaseUrl = inviteCode
+          ? 'supabase.cdjranuethtszqokosjn://join/' + encodedCode
+          : 'supabase.cdjranuethtszqokosjn://'
+
+        inviteCodeValue.textContent = inviteCode || '------'
+        copyCodeButton.addEventListener('click', function () {
+          copyValue(inviteCode, 'Copied!', 'Copy code')
+        })
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) cancelFallback()
+        })
+        window.addEventListener('pagehide', cancelFallback)
+        window.addEventListener('blur', cancelFallback)
+
+        if (!inviteCode) {
+          setInvalidInvite()
+          return
+        }
+
+        if (!isMobile) {
+          setView({
+            heroTitle: 'Open this invite on your phone',
+            heroLead:
+              'This private rig invite opens the app on a phone. If AI Sabotage is installed there, you’ll go straight to the lobby.',
+            statusTitle: 'We don’t auto-open the app on desktop.',
+            statusBody:
+              'Open this same link on your phone or copy the rig code and enter it in PRIVATE MATCH → JOIN RIG.',
+            primaryLabel: 'Copy link',
+            secondaryLabel: 'Go to store',
+          })
+          openAppButton.href = publicInviteUrl
+          openAppButton.addEventListener('click', function (e) {
+            e.preventDefault()
+            copyValue(publicInviteUrl, 'Link copied', 'Copy link')
+          })
+          storeButton.classList.add('hidden')
+          return
+        }
+        if (isAndroid) {
+          setView({
+            heroTitle: 'Opening AI Sabotage…',
+            heroLead:
+              'If the app is installed, you’ll go straight to the private rig. If not, we’ll take you to Google Play.',
+            statusTitle: 'Trying to open the app…',
+            statusBody: 'If nothing happens, use the buttons below.',
+            primaryLabel: 'Open AI Sabotage',
+            secondaryLabel: 'Get on Google Play',
+          })
+          openAppButton.href = androidIntentUrl
+          storeButton.href = playStoreUrl
+          scheduleFallback(playStoreUrl)
+          window.location.replace(androidIntentUrl)
+          return
+        }
+        // iOS
+        setView({
+          heroTitle: 'Opening AI Sabotage…',
+          heroLead:
+            'If AI Sabotage is installed, this link should open the private rig. If not, we’ll send you to the App Store.',
+          statusTitle: 'Trying to open on iPhone…',
+          statusBody: 'If nothing happens, you’ll be sent to the App Store.',
+          primaryLabel: 'Open AI Sabotage',
+          secondaryLabel: 'View on App Store',
+        })
+        openAppButton.href = iosCustomUrl
+        storeButton.href = appStoreUrl
+        scheduleFallback(appStoreUrl)
+        // Try custom scheme, with supabase fallback after short delay if needed
+        window.location.href = iosCustomUrl
+        // Secondary fallback to supabase scheme if aisabotage not handled (older builds)
+        setTimeout(function () {
+          // only if still visible, try supabase scheme as well before store fallback
+          if (!document.hidden) {
+            // don't override fallback timer, just attempt
+            var ifr = document.createElement('iframe')
+            ifr.style.display = 'none'
+            ifr.src = iosSupabaseUrl
+            document.body.appendChild(ifr)
+          }
+        }, 400)
+      })()
+    </script>
+  </body>
+</html>
