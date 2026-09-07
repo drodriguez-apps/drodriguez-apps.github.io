@@ -63,7 +63,7 @@ export const appProjects: AppProject[] = [
       'Interfaz del juego de cartas ciberpunk AI Sabotage con componentes iluminados de neón y acciones de sabotaje.',
     ),
     downloads: 'New',
-    storeUrl: '',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.axislabs.aisabotage',
     iconUrl: '/apps/ai-sabotage-icon.png',
     featureUrl: '/apps/ai-sabotage-banner.png',
     featured: false,
