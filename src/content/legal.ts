@@ -1,6 +1,16 @@
-import type { LegalDocument, LocalizedText } from '@/types/content'
+import type { LegalDocument, LegalSection, LocalizedText } from '@/types/content'
 
 const copy = (en: string, es: string): LocalizedText => ({ en, es })
+
+export const appleStandardEulaSection: LegalSection = {
+  title: copy('Apple Terms of Use (EULA)', 'Términos de Uso de Apple (EULA)'),
+  paragraphs: [
+    copy(
+      'This application is also governed by the standard Apple Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+      'Esta aplicación también se rige por los Términos de Uso estándar de Apple (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+    ),
+  ],
+}
 
 export const privacyDocument: LegalDocument = {
   title: copy('Privacy policy', 'Política de privacidad'),

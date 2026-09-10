@@ -5,7 +5,12 @@ import { useI18n } from 'vue-i18n'
 
 import LegalDocument from '@/components/LegalDocument.vue'
 import ProjectSummaryCard from '@/components/ProjectSummaryCard.vue'
-import { eulaDocument, privacyDocument, termsDocument } from '@/content/legal'
+import {
+  eulaDocument,
+  appleStandardEulaSection,
+  privacyDocument,
+  termsDocument,
+} from '@/content/legal'
 import { pickLocalized, siteConfig } from '@/content/site'
 import { getProjectBySlug } from '@/composables/useCatalog'
 import { usePageMeta } from '@/composables/usePageMeta'
@@ -23,6 +28,12 @@ const project = computed(() => getProjectBySlug(props.slug))
 const document = computed(() => {
   if (props.documentType === 'privacy') return privacyDocument
   if (props.documentType === 'eula') return eulaDocument
+  if (props.slug === 'ai-sabotage') {
+    return {
+      ...termsDocument,
+      sections: [...termsDocument.sections, appleStandardEulaSection],
+    }
+  }
   return termsDocument
 })
 
