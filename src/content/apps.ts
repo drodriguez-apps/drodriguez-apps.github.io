@@ -127,6 +127,7 @@ export const appProjects: AppProject[] = [
     ),
     downloads: 'New',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.drivecam',
+    iosStoreUrl: 'https://apps.apple.com/us/app/drivecam-car-camera-recorder/id6791342778',
     iconUrl: '/apps/drivecam-icon.jpg',
     featureUrl: '/apps/drivecam-banner.jpg',
     featured: false,
