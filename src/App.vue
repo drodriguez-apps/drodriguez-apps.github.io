@@ -34,6 +34,20 @@ useHead({
         <div class="site-footer__intro">
           <p class="site-footer__brand">{{ siteConfig.brandName }}<span>.</span></p>
           <p class="site-footer__hint">{{ t('footer.legalHint') }}</p>
+          <a
+            class="site-footer__badge"
+            href="https://smollaunch.com"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="https://smollaunch.com/badges/featured-dark.svg"
+              alt="AI Sabotage: Build the AGI — Featured on Smol Launch"
+              loading="lazy"
+              width="250"
+              height="60"
+            />
+          </a>
         </div>
 
         <div class="site-footer__column">
@@ -105,6 +119,18 @@ main {
 .site-footer__intro {
   display: grid;
   gap: 0.75rem;
+}
+
+.site-footer__badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 0.5rem;
+}
+
+.site-footer__badge img {
+  display: block;
+  max-width: 70%;
+  height: auto;
 }
 
 .site-footer__note,
