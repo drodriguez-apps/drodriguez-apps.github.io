@@ -58,6 +58,24 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     component: () => import('@/views/HomeView.vue'),
   },
+  {
+    path: '/privacy',
+    alias: '/policy',
+    name: 'privacy',
+    component: () => import('@/views/LegalView.vue'),
+    props: {
+      documentType: 'privacy',
+    },
+  },
+  {
+    path: '/terms',
+    alias: '/terms-and-conditions',
+    name: 'terms',
+    component: () => import('@/views/LegalView.vue'),
+    props: {
+      documentType: 'terms',
+    },
+  },
   ...appRoutes,
   {
     path: '/:pathMatch(.*)*',

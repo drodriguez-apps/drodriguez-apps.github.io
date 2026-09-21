@@ -5,7 +5,7 @@ const copy = (en: string, es: string): LocalizedText => ({ en, es })
 export const siteConfig = {
   brandName: 'Axis Labs',
   email: 'drodriguez.apps@gmail.com',
-  baseUrl: 'https://drodriguez-apps.github.io',
+  baseUrl: 'https://axislabs.eu',
   location: copy('Building mobile products from Spain.', 'Creando productos móviles desde España.'),
 } as const
 

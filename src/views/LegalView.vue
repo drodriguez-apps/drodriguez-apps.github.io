@@ -17,14 +17,14 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import type { SiteLocale } from '@/types/content'
 
 const props = defineProps<{
-  slug: string
+  slug?: string
   documentType: 'privacy' | 'terms' | 'eula'
 }>()
 
 const { locale, t } = useI18n()
 
 const currentLocale = computed(() => locale.value as SiteLocale)
-const project = computed(() => getProjectBySlug(props.slug))
+const project = computed(() => (props.slug ? getProjectBySlug(props.slug) : undefined))
 const document = computed(() => {
   if (props.documentType === 'privacy') return privacyDocument
   if (props.documentType === 'eula') return eulaDocument
@@ -38,28 +38,32 @@ const document = computed(() => {
 })
 
 const documentPath = computed(() => {
-  if (props.documentType === 'privacy') return 'policy'
-  if (props.documentType === 'eula') return 'eula'
-  return 'terms-and-conditions'
+  if (!props.slug) {
+    return props.documentType === 'privacy' ? '/privacy' : '/terms'
+  }
+  if (props.documentType === 'privacy') return `/${props.slug}/policy`
+  if (props.documentType === 'eula') return `/${props.slug}/eula`
+  return `/${props.slug}/terms-and-conditions`
 })
 
 usePageMeta({
   title: computed(() => {
+    const docTitle = pickLocalized(currentLocale.value, document.value.title)
     if (!project.value) {
-      return siteConfig.brandName
+      return `${docTitle} | ${siteConfig.brandName}`
     }
 
-    return `${pickLocalized(currentLocale.value, document.value.title)} | ${project.value.storeTitle}`
+    return `${docTitle} | ${project.value.storeTitle}`
   }),
   description: computed(() => pickLocalized(currentLocale.value, document.value.summary)),
-  path: computed(() => `/${props.slug}/${documentPath.value}`),
+  path: documentPath,
   image: computed(() => project.value?.featureUrl ?? `${siteConfig.baseUrl}/favicon.ico`),
   type: 'article',
 })
 </script>
 
 <template>
-  <section v-if="project" class="legal-view">
+  <section class="legal-view">
     <div class="container legal-view__header">
       <div>
         <p class="eyebrow">
@@ -68,18 +72,18 @@ usePageMeta({
         </p>
         <h1>{{ pickLocalized(currentLocale, document.title) }}</h1>
         <p class="section-copy">
-          {{ t('legal.intro') }} {{ project.name }}.
+          <template v-if="project"> {{ t('legal.intro') }} {{ project.name }}. </template>
           {{ pickLocalized(currentLocale, document.summary) }}
         </p>
       </div>
 
-      <RouterLink class="button-secondary" :to="`/${project.slug}`">
-        {{ t('legal.back') }}
+      <RouterLink class="button-secondary" :to="project ? `/${project.slug}` : '/'">
+        {{ project ? t('legal.back') : t('nav.home') }}
       </RouterLink>
     </div>
 
-    <div class="container legal-view__layout">
-      <ProjectSummaryCard :project="project" />
+    <div class="container legal-view__layout" :class="{ 'legal-view__layout--solo': !project }">
+      <ProjectSummaryCard v-if="project" :project="project" />
       <LegalDocument :document="document" />
     </div>
   </section>
@@ -118,6 +122,13 @@ usePageMeta({
   :deep(.project-summary) {
     position: sticky;
     top: calc(var(--header-height) + 1.6rem);
+  }
+
+  &--solo {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 52rem;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 

@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
 
@@ -61,6 +61,16 @@ useHead({
         </div>
 
         <div class="site-footer__column">
+          <p class="site-footer__label">{{ t('labels.legal') }}</p>
+          <RouterLink class="site-footer__link" to="/privacy">
+            {{ t('actions.policy') }}
+          </RouterLink>
+          <RouterLink class="site-footer__link" to="/terms">
+            {{ t('actions.terms') }}
+          </RouterLink>
+        </div>
+
+        <div class="site-footer__column">
           <p class="site-footer__label">{{ t('footer.connect') }}</p>
           <a class="site-footer__link" :href="'mailto:' + siteConfig.email">
             {{ t('actions.email') }}
@@ -96,7 +106,7 @@ main {
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 0.8fr));
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 0.8fr));
   gap: 2rem 3rem;
 }
 

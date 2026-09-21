@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -21,6 +21,32 @@ usePageMeta({
   description: computed(() => pickLocalized(currentLocale.value, landingCopy.heroLead)),
   path: '/',
   image: computed(() => appProjects[0]?.featureUrl ?? `${siteConfig.baseUrl}/favicon.ico`),
+  schema: computed(() => ({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteConfig.baseUrl}/#organization`,
+        name: siteConfig.brandName,
+        url: siteConfig.baseUrl,
+        logo: `${siteConfig.baseUrl}/images/axislabs-logo.png`,
+        description: pickLocalized(currentLocale.value, landingCopy.heroLead),
+        email: siteConfig.email,
+        sameAs: ['https://play.google.com/store/apps/developer?id=drodriguez'],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteConfig.baseUrl}/#website`,
+        url: siteConfig.baseUrl,
+        name: siteConfig.brandName,
+        description: pickLocalized(currentLocale.value, landingCopy.heroLead),
+        publisher: {
+          '@id': `${siteConfig.baseUrl}/#organization`,
+        },
+        inLanguage: ['en', 'es'],
+      },
+    ],
+  })),
 })
 </script>
 
