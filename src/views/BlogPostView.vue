@@ -77,6 +77,78 @@ usePageMeta({
   ),
 })
 
+interface TextSegment {
+  kind: 'text' | 'link'
+  value: string
+  href?: string
+  isInternal?: boolean
+}
+
+function parseParagraph(text: string): TextSegment[] {
+  const segments: TextSegment[] = []
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)|(https?:\/\/[^\s<>)"]+)/g
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ kind: 'text', value: text.slice(lastIndex, match.index) })
+    }
+
+    if (match[1] !== undefined && match[2] !== undefined) {
+      const label = match[1]
+      let href = match[2].trim()
+      let isInternal = href.startsWith('/')
+
+      if (href.startsWith(siteConfig.baseUrl)) {
+        href = href.slice(siteConfig.baseUrl.length) || '/'
+        isInternal = true
+      }
+
+      segments.push({
+        kind: 'link',
+        value: label,
+        href,
+        isInternal,
+      })
+    } else if (match[3] !== undefined) {
+      let url = match[3]
+      let trailing = ''
+      const trailingMatch = url.match(/[.,;:!?]+$/)
+      if (trailingMatch) {
+        trailing = trailingMatch[0]
+        url = url.slice(0, -trailing.length)
+      }
+
+      let href = url
+      let isInternal = false
+      if (href.startsWith(siteConfig.baseUrl)) {
+        href = href.slice(siteConfig.baseUrl.length) || '/'
+        isInternal = true
+      }
+
+      segments.push({
+        kind: 'link',
+        value: url,
+        href,
+        isInternal,
+      })
+
+      if (trailing) {
+        segments.push({ kind: 'text', value: trailing })
+      }
+    }
+
+    lastIndex = match.index + match[0].length
+  }
+
+  if (lastIndex < text.length) {
+    segments.push({ kind: 'text', value: text.slice(lastIndex) })
+  }
+
+  return segments.length > 0 ? segments : [{ kind: 'text', value: text }]
+}
+
 if (!post.value) {
   router.replace({ name: 'not-found' })
 }
@@ -115,7 +187,30 @@ if (!post.value) {
             <h2>{{ pickLocalized(currentLocale, section.heading) }}</h2>
             <div class="copy-stack">
               <p v-for="(paragraph, pIndex) in section.paragraphs" :key="pIndex">
-                {{ pickLocalized(currentLocale, paragraph) }}
+                <template
+                  v-for="(segment, sIndex) in parseParagraph(
+                    pickLocalized(currentLocale, paragraph),
+                  )"
+                  :key="sIndex"
+                >
+                  <RouterLink
+                    v-if="segment.kind === 'link' && segment.isInternal"
+                    :to="segment.href!"
+                    class="blog-post__link"
+                  >
+                    {{ segment.value }}
+                  </RouterLink>
+                  <a
+                    v-else-if="segment.kind === 'link'"
+                    :href="segment.href"
+                    class="blog-post__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ segment.value }}
+                  </a>
+                  <template v-else>{{ segment.value }}</template>
+                </template>
               </p>
             </div>
           </section>
@@ -222,6 +317,20 @@ if (!post.value) {
   color: var(--color-text-muted);
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.75;
+}
+
+.blog-post__section a,
+.blog-post__link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.8;
+  }
 }
 
 .blog-related {
