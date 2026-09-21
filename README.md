@@ -1,6 +1,6 @@
 # Axis Labs
 
-Live site: https://drodriguez-apps.github.io
+Live site: https://axislabs.eu (redirects from https://drodriguez-apps.github.io)
 
 ## Deployment
 
