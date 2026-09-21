@@ -21,3 +21,11 @@
 
 - [Privacy Policy](https://axislabs.eu/privacy): Axis Labs privacy notice for website visitors and mobile app users.
 - [Terms and Conditions](https://axislabs.eu/terms): Terms of service and conditions for using Axis Labs website and applications.
+
+## Blog
+
+- [Blog](https://axislabs.eu/blog): Mobile engineering, app marketing, and open-source tooling articles.
+- [Why We Build Every App with Flutter](https://axislabs.eu/blog/why-we-build-with-flutter): How choosing Flutter enables single-codebase development for Android, iOS, and macOS, compared with native and React Native.
+- [Every App Deserves Its Own Website](https://axislabs.eu/blog/every-app-deserves-its-own-website): How dedicated marketing websites and targeted SEO drive organic downloads for mobile applications.
+- [Open-Source Tools We Built for Our Apps](https://axislabs.eu/blog/open-source-tools-for-our-apps): Overview of open-source tools including rewarded_ad_counter (Flutter monetization on pub.dev) and companies-scraper (outbound B2B lead generation).
+

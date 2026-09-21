@@ -55,6 +55,9 @@ useHead({
           <RouterLink class="site-footer__link" :to="{ path: '/', hash: '#apps' }">
             {{ t('nav.apps') }}
           </RouterLink>
+          <RouterLink class="site-footer__link" to="/blog">
+            {{ t('nav.blog') }}
+          </RouterLink>
           <RouterLink class="site-footer__link" :to="{ path: '/', hash: '#contact' }">
             {{ t('nav.contact') }}
           </RouterLink>

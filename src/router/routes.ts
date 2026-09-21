@@ -1,6 +1,16 @@
 import type { RouteRecordRaw } from 'vue-router'
 
 import { appProjects } from '@/content/apps'
+import { blogPosts } from '@/content/blog'
+
+const blogRoutes: RouteRecordRaw[] = blogPosts.map((post) => ({
+  path: `/blog/${post.slug}`,
+  name: `blog-${post.slug}`,
+  component: () => import('@/views/BlogPostView.vue'),
+  props: {
+    slug: post.slug,
+  },
+}))
 
 const appRoutes: RouteRecordRaw[] = appProjects.flatMap((project) => [
   {
@@ -75,6 +85,18 @@ export const routes: RouteRecordRaw[] = [
     props: {
       documentType: 'terms',
     },
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: () => import('@/views/BlogView.vue'),
+  },
+  ...blogRoutes,
+  {
+    path: '/blog/:slug',
+    name: 'blog-post',
+    component: () => import('@/views/BlogPostView.vue'),
+    props: true,
   },
   ...appRoutes,
   {

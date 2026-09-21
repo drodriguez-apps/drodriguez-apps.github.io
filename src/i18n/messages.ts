@@ -12,6 +12,7 @@ export const messages = {
       approach: 'System',
       process: 'Process',
       contact: 'Contact',
+      blog: 'Blog',
     },
     locale: {
       en: 'English',
@@ -67,6 +68,16 @@ export const messages = {
       connect: 'Connect',
       legalHint: 'Professional cross-platform apps built with Flutter and designed for quality.',
     },
+    blog: {
+      title: 'Blog',
+      lead: 'Insights on mobile development, marketing, and the tools we build to ship better apps.',
+      readMore: 'Read article',
+      backToBlog: 'Back to blog',
+      relatedApps: 'Related apps',
+      publishedOn: 'Published on',
+      minuteRead: 'min read',
+      viewAll: 'View all articles',
+    },
     notFound: {
       title: 'Page not found',
       lead: 'The route you requested is not available. Use the home page to browse our apps.',
@@ -81,6 +92,7 @@ export const messages = {
       approach: 'Sistema',
       process: 'Proceso',
       contact: 'Contacto',
+      blog: 'Blog',
     },
     locale: {
       en: 'Inglés',
@@ -136,6 +148,16 @@ export const messages = {
       connect: 'Conecta',
       legalHint:
         'Apps multiplataforma profesionales, desarrolladas con Flutter y pensadas para la calidad.',
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Perspectivas sobre desarrollo móvil, marketing y las herramientas que creamos para publicar mejores apps.',
+      readMore: 'Leer artículo',
+      backToBlog: 'Volver al blog',
+      relatedApps: 'Apps relacionadas',
+      publishedOn: 'Publicado el',
+      minuteRead: 'min de lectura',
+      viewAll: 'Ver todos los artículos',
     },
     notFound: {
       title: 'Página no encontrada',
