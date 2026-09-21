@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 
 import ProjectCard from '@/components/ProjectCard.vue'
 import { appProjects } from '@/content/apps'
+import { blogPosts } from '@/content/blog'
 import { landingCopy, pickLocalized, siteConfig } from '@/content/site'
 import { usePageMeta } from '@/composables/usePageMeta'
 import type { SiteLocale } from '@/types/content'
@@ -15,6 +16,20 @@ const marqueeProjects = computed(() => [
   ...appProjects.map((project) => project.name),
   ...appProjects.map((project) => project.name),
 ])
+const recentPosts = computed(() =>
+  [...blogPosts]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3),
+)
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr)
+  return date.toLocaleDateString(currentLocale.value === 'es' ? 'es-ES' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+}
 
 usePageMeta({
   title: computed(() => siteConfig.brandName),
@@ -44,6 +59,16 @@ usePageMeta({
           '@id': `${siteConfig.baseUrl}/#organization`,
         },
         inLanguage: ['en', 'es'],
+      },
+      {
+        '@type': 'Blog',
+        '@id': `${siteConfig.baseUrl}/#blog`,
+        url: `${siteConfig.baseUrl}/blog`,
+        name: `${siteConfig.brandName} Blog`,
+        description: t('blog.lead'),
+        publisher: {
+          '@id': `${siteConfig.baseUrl}/#organization`,
+        },
       },
     ],
   })),
@@ -99,6 +124,47 @@ usePageMeta({
 
         <div class="home-apps__grid">
           <ProjectCard v-for="project in appProjects" :key="project.slug" :project="project" />
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section section--light home-blog">
+      <div class="container">
+        <div class="home-section-heading">
+          <p class="eyebrow">
+            <span class="eyebrow__dot" />
+            {{ t('nav.blog') }}
+          </p>
+          <h2>{{ t('blog.title') }}</h2>
+          <p class="home-section-lead">{{ t('blog.lead') }}</p>
+        </div>
+
+        <div class="home-blog__grid">
+          <RouterLink
+            v-for="post in recentPosts"
+            :key="post.slug"
+            :to="`/blog/${post.slug}`"
+            class="home-blog__card card"
+          >
+            <div class="home-blog__meta">
+              <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+              <span>·</span>
+              <span>{{ post.readingTime }} {{ t('blog.minuteRead') }}</span>
+            </div>
+            <h3 class="home-blog__card-title">
+              {{ pickLocalized(currentLocale, post.title) }}
+            </h3>
+            <p class="home-blog__card-summary">
+              {{ pickLocalized(currentLocale, post.summary) }}
+            </p>
+            <span class="home-blog__card-cta">{{ t('blog.readMore') }} →</span>
+          </RouterLink>
+        </div>
+
+        <div class="home-blog__actions">
+          <RouterLink class="button-dark" to="/blog">
+            {{ t('blog.viewAll') }}
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -234,6 +300,66 @@ usePageMeta({
 
 .home-cta__lead {
   color: rgba(255, 255, 255, 0.8);
+}
+
+.home-blog {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.home-blog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.home-blog__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-surface);
+}
+
+.home-blog__card:hover,
+.home-blog__card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.home-blog__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.home-blog__card-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  line-height: 1.1;
+}
+
+.home-blog__card-summary {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.home-blog__card-cta {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
+}
+
+.home-blog__actions {
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes marquee {

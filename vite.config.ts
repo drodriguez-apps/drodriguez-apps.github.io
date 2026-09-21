@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
 import { appProjects } from './src/content/apps'
+import { blogPosts } from './src/content/blog'
 
 const projectRoutes = appProjects.flatMap((project) => [
   `/${project.slug}`,
@@ -11,6 +12,8 @@ const projectRoutes = appProjects.flatMap((project) => [
   `/${project.slug}/terms-and-conditions`,
   `/${project.slug}/eula`,
 ])
+
+const blogRoutes = ['/blog', ...blogPosts.map((post) => `/blog/${post.slug}`)]
 
 export default defineConfig({
   plugins: [vue()],
@@ -25,6 +28,7 @@ export default defineConfig({
         new Set([
           ...paths.filter((path) => !path.includes(':') && !path.includes('*')),
           ...projectRoutes,
+          ...blogRoutes,
         ]),
       )
     },

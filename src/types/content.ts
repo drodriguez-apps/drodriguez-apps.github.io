@@ -47,3 +47,19 @@ export interface LegalDocument {
   summary: LocalizedText
   sections: LegalSection[]
 }
+
+export interface BlogSection {
+  heading: LocalizedText
+  paragraphs: LocalizedText[]
+}
+
+export interface BlogPost {
+  slug: string
+  title: LocalizedText
+  summary: LocalizedText
+  date: string
+  readingTime: number
+  content: BlogSection[]
+  tags: string[]
+  relatedApps: string[]
+}

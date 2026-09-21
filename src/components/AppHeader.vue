@@ -55,6 +55,9 @@ onBeforeUnmount(() => {
         <RouterLink class="site-header__link" :to="{ path: '/', hash: '#apps' }">
           {{ t('nav.apps') }}
         </RouterLink>
+        <RouterLink class="site-header__link" to="/blog">
+          {{ t('nav.blog') }}
+        </RouterLink>
         <RouterLink class="site-header__link" :to="{ path: '/', hash: '#contact' }">
           {{ t('nav.contact') }}
         </RouterLink>
