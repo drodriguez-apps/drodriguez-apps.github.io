@@ -63,6 +63,15 @@ const cardStyle = computed(() => ({
             {{ t('actions.openAppStore') }}
           </a>
         </div>
+        <a
+          v-if="project.websiteUrl"
+          class="button-dark"
+          :href="project.websiteUrl"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {{ t('actions.website') }}
+        </a>
         <div class="project-summary__legal-links">
           <RouterLink class="button-secondary" :to="`/${project.slug}/policy`">
             {{ t('actions.policy') }}

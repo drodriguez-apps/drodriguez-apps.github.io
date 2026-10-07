@@ -109,6 +109,15 @@ usePageMeta({
             >
               {{ t('actions.openAppStore') }}
             </a>
+            <a
+              v-if="project.websiteUrl"
+              class="button-dark"
+              :href="project.websiteUrl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ t('actions.website') }}
+            </a>
             <RouterLink class="button-secondary" :to="`/${project.slug}/policy`">
               {{ t('actions.policy') }}
             </RouterLink>

@@ -65,6 +65,7 @@ export const appProjects: AppProject[] = [
     downloads: 'New',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.axislabs.aisabotage',
     iosStoreUrl: 'https://apps.apple.com/app/ai-sabotage-build-the-agi/id6806422984',
+    websiteUrl: 'https://aisabotage.store',
     iconUrl: '/apps/ai-sabotage-icon.png',
     featureUrl: '/apps/ai-sabotage-banner.png',
     featured: false,
@@ -128,6 +129,7 @@ export const appProjects: AppProject[] = [
     downloads: 'New',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.drivecam',
     iosStoreUrl: 'https://apps.apple.com/us/app/drivecam-car-camera-recorder/id6791342778',
+    websiteUrl: 'https://drivecam.store',
     iconUrl: '/apps/drivecam-icon.jpg',
     featureUrl: '/apps/drivecam-banner.jpg',
     featured: false,
@@ -192,6 +194,7 @@ export const appProjects: AppProject[] = [
     rating: '4.8',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.my_rents',
     iosStoreUrl: 'https://apps.apple.com/app/my-rents-property-manager-pro/id1537064606',
+    websiteUrl: 'https://myrents-app.com',
     iconUrl: '/apps/my-rents-icon.png',
     featureUrl: '/apps/my-rents-banner.png',
     featured: true,
@@ -255,6 +258,7 @@ export const appProjects: AppProject[] = [
     downloads: '1+',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.homehandy',
     iosStoreUrl: 'https://apps.apple.com/app/homehandy-home-maintenance/id6763947552',
+    websiteUrl: 'https://homehandy.store',
     iconUrl: '/apps/home-handy-icon.png',
     featureUrl: '/apps/home-handy-banner.png',
     featured: false,
@@ -318,6 +322,7 @@ export const appProjects: AppProject[] = [
     downloads: '1+',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.tandapp',
     iosStoreUrl: 'https://apps.apple.com/app/tandapp-tandas-organizer/id6763742265',
+    websiteUrl: 'https://tandapp.net',
     iconUrl: '/apps/tandapp-icon.png',
     featureUrl: '/apps/tandapp-banner.png',
     featured: false,
@@ -382,6 +387,7 @@ export const appProjects: AppProject[] = [
     rating: '5.0',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.imposter',
     iosStoreUrl: 'https://apps.apple.com/app/the-impostor-online/id6763661603',
+    websiteUrl: 'https://theimpostor.eu',
     iconUrl: '/apps/the-impostor-icon.png',
     featureUrl: '/apps/the-impostor-banner.png',
     featured: true,
@@ -766,6 +772,78 @@ export const appProjects: AppProject[] = [
       accent: '#c4621b',
       soft: '#ffe4c9',
       gradient: 'linear-gradient(135deg, #633514 0%, #c4621b 45%, #fff2dd 100%)',
+    },
+  },
+  {
+    slug: 'counter',
+    name: 'Counter',
+    storeTitle: 'Counter: Tally Counter',
+    category: copy('Tools', 'Herramientas'),
+    updatedLabel: copy('October 7, 2026', '7 de octubre de 2026'),
+    summary: copy(
+      'A versatile ad-free tally counter for tracking habits, workout reps, inventory, and scores.',
+      'Un contador de tally versátil y sin publicidad para registrar hábitos, repeticiones de entrenamiento, inventario y puntuaciones.',
+    ),
+    previewSummary: copy(
+      'A versatile ad-free tally counter.',
+      'Un contador de tally versátil y sin publicidad.',
+    ),
+    description: [
+      copy(
+        'Counter is a versatile, ad-free tally counter designed to track habits, workout reps, inventory, and scores. It features interactive Home Screen widgets, milestone targets, folder organization, and an authentic mechanical clicker theme. You can also share counters with others to collaborate with instant, real-time cloud sync.',
+        'Counter es una aplicación de conteo versátil y sin publicidad para registrar hábitos, repeticiones de entrenamiento, inventario y puntuaciones. Incluye widgets interactivos para la pantalla de inicio, seguimiento de metas, organización en carpetas y un diseño clásico de clicker mecánico. Además, permite compartir contadores con otras personas mediante sincronización en la nube en tiempo real.',
+      ),
+    ],
+    highlights: [
+      {
+        title: copy('Home Screen widgets', 'Widgets para la pantalla de inicio'),
+        description: copy(
+          'Interactive widgets to track counters directly from your home screen.',
+          'Widgets interactivos para rastrear contadores directamente desde la pantalla de inicio.',
+        ),
+      },
+      {
+        title: copy('Milestone targets', 'Metas de hito'),
+        description: copy(
+          'Set target numbers and track progress toward milestones.',
+          'Establece objetivos numéricos y realiza un seguimiento del progreso hacia las metas.',
+        ),
+      },
+      {
+        title: copy('Folder organization', 'Organización en carpetas'),
+        description: copy(
+          'Organize your counters into folders for different categories.',
+          'Organiza tus contadores en carpetas para diferentes categorías.',
+        ),
+      },
+      {
+        title: copy('Mechanical clicker theme', 'Tema de clicker mecánico'),
+        description: copy(
+          'Authentic mechanical clicker sounds and design.',
+          'Sonidos y diseño de clicker mecánico auténtico.',
+        ),
+      },
+      {
+        title: copy('Real-time cloud sync', 'Sincronización en la nube en tiempo real'),
+        description: copy(
+          'Share counters with others and sync instantly across devices.',
+          'Comparte contadores con otras personas y sincroniza al instante en todos los dispositivos.',
+        ),
+      },
+    ],
+    featureAlt: copy(
+      'Counter app interface with mechanical clicker theme and counter display.',
+      'Interfaz de la app Counter con tema de clicker mecánico y visualización de contador.',
+    ),
+    downloads: '1+',
+    storeUrl: '#',
+    iconUrl: '/apps/counter-icon.jpg',
+    featureUrl: '/apps/counter-banner.png',
+    featured: false,
+    palette: {
+      accent: '#1a73e8',
+      soft: '#d4e4fc',
+      gradient: 'linear-gradient(135deg, #1a73e8 0%, #64b5f6 50%, #e3f2fd 100%)',
     },
   },
 ]
